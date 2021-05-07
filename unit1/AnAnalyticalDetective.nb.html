@@ -2000,9 +2000,327 @@ summary {
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Problem 4.1 - Popular Locations Analyzing this data could be useful to the Chicago Police Department when deciding where to allocate resources. If they want to increase the number of arrests that are made for motor vehicle thefts, where should they focus their efforts?</p>
+<p>We want to find the top five locations where motor vehicle thefts occur. If you create a table of the LocationDescription variable, it is unfortunately very hard to read since there are 78 different locations in the data set. By using the sort function, we can view this same table, but sorted by the number of observations in each category. In your R console, type:</p>
+<p>sort(table(mvt$LocationDescription))</p>
+<p>Which locations are the top five locations for motor vehicle thefts, excluding the “Other” category? You should select 5 of the following options.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc29ydCh0YWJsZShtdnQkTG9jYXRpb25EZXNjcmlwdGlvbiksIGRlY3JlYXNpbmcgPSBUUlVFKVxuXG5gYGAifQ== -->
+<pre class="r"><code>sort(table(mvt$LocationDescription), decreasing = TRUE)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNUUkVFVCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTU2NTY0IFxuICAgICAgICAgICAgICAgICBQQVJLSU5HIExPVC9HQVJBR0UoTk9OLlJFU0lELikgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNDg1MiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE9USEVSIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQ1NzMgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBBTExFWSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMzA4IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgR0FTIFNUQVRJT04gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjExMSBcbiAgICAgICAgICAgICAgICAgICAgICAgICBEUklWRVdBWSAtIFJFU0lERU5USUFMIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE2NzUgXG4gICAgICAgICAgICAgICAgICBSRVNJREVOVElBTCBZQVJEIChGUk9OVC9CQUNLKSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNTM2IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSRVNJREVOQ0UgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTMwMiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSRVNJREVOQ0UtR0FSQUdFIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDExNzYgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFZBQ0FOVCBMT1QvTEFORCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOTg1IFxuICAgICAgICAgICAgICAgICAgICAgICAgIFZFSElDTEUgTk9OLUNPTU1FUkNJQUwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDgxNyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNJREVXQUxLIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0NjIgXG4gICAgICAgICAgICAgICAgICAgICAgICBDSEEgUEFSS0lORyBMT1QvR1JPVU5EUyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNDA1IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFJUlBPUlQvQUlSQ1JBRlQgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM2MyBcbiAgICAgICAgICAgICAgICBQT0xJQ0UgRkFDSUxJVFkvVkVIIFBBUktJTkcgTE9UIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyNjYgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUEFSSyBQUk9QRVJUWSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjU1IFxuICAgICAgICAgICAgICAgICAgICAgICAgU0NIT09MLCBQVUJMSUMsIEdST1VORFMgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIwNiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQVBBUlRNRU5UIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxODQgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICBTUE9SVFMgQVJFTkEvU1RBRElVTSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTY2IFxuICAgICAgICAgICAgICAgICAgICBDVEEgR0FSQUdFIC8gT1RIRVIgUFJPUEVSVFkgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0OCBcbiAgICAgICAgICAgICAgICAgICBDT01NRVJDSUFMIC8gQlVTSU5FU1MgT0ZGSUNFIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMjYgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBIT1RFTC9NT1RFTCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTI0IFxuICAgICAgICAgICAgICAgICAgICAgICBTQ0hPT0wsIFBVQkxJQywgQlVJTERJTkcgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDExNCBcbiAgICAgICAgICAgICAgICAgICAgICBIT1NQSVRBTCBCVUlMRElORy9HUk9VTkRTIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMDEgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgIEdST0NFUlkgRk9PRCBTVE9SRSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDgwIFxuICAgICAgICAgICAgICBDSFVSQ0gvU1lOQUdPR1VFL1BMQUNFIE9GIFdPUlNISVAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA1NiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSRVNUQVVSQU5UIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNDkgXG4gICAgICAgICAgICAgICAgICAgR09WRVJOTUVOVCBCVUlMRElORy9QUk9QRVJUWSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQ4IFxuICAgICAgICAgICAgICAgICAgICAgQ09MTEVHRS9VTklWRVJTSVRZIEdST1VORFMgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0NyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIENBUiBXQVNIIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNDQgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDT05TVFJVQ1RJT04gU0lURSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM1IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTTUFMTCBSRVRBSUwgU1RPUkUgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAzMyBcbiAgICAgICAgICAgICAgT1RIRVIgUkFJTFJPQUQgUFJPUCAvIFRSQUlOIERFUE9UIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjggXG4gICAgICAgICAgICAgQUlSUE9SVCBFWFRFUklPUiAtIE5PTi1TRUNVUkUgQVJFQSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDI0IFxuICAgICAgICAgICAgICAgICAgICAgICBTQ0hPT0wsIFBSSVZBVEUsIEdST1VORFMgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVkVISUNMRS1DT01NRVJDSUFMIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjMgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgREVQQVJUTUVOVCBTVE9SRSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIyIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICBISUdIV0FZL0VYUFJFU1NXQVkgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMiBcbiAgICAgICAgICAgICAgICAgICBOVVJTSU5HIEhPTUUvUkVUSVJFTUVOVCBIT01FIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjEgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVEFYSUNBQiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIxIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1PVklFIEhPVVNFL1RIRUFURVIgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxOCBcbiAgICAgICAgICAgICAgICAgICAgICAgIFJFU0lERU5DRSBQT1JDSC9IQUxMV0FZIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTggXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQkFSIE9SIFRBVkVSTiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE3IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBXQVJFSE9VU0UgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNyBcbiAgICAgICAgICAgICAgICAgRkFDVE9SWS9NQU5VRkFDVFVSSU5HIEJVSUxESU5HIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTYgXG4gICAgICAgICAgICAgICAgICAgICAgU0NIT09MLCBQUklWQVRFLCBCVUlMRElORyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRBVkVSTi9MSVFVT1IgU1RPUkUgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBBSVJQT1JUIFBBUktJTkcgTE9UIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTEgXG4gICAgICAgICAgICAgICAgICBBSVJQT1JUIFZFTkRJTkcgRVNUQUJMSVNITUVOVCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEwIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFUSExFVElDIENMVUIgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBEUlVHIFNUT1JFIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDggXG4gICAgICAgICAgICAgICAgT1RIRVIgQ09NTUVSQ0lBTCBUUkFOU1BPUlRBVElPTiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEJBTksgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIENPTlZFTklFTkNFIFNUT1JFIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDcgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEZPUkVTVCBQUkVTRVJWRSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA2IFxuIEFJUlBPUlQgVEVSTUlOQUwgVVBQRVIgTEVWRUwgLSBOT04tU0VDVVJFIEFSRUEgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDSEEgQVBBUlRNRU5UIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDUgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIERBWSBDQVJFIENFTlRFUiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA1IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBGSVJFIFNUQVRJT04gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQUJBTkRPTkVEIEJVSUxESU5HIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQgXG5BSVJQT1JUIEJVSUxESU5HIE5PTi1URVJNSU5BTCAtIE5PTi1TRUNVUkUgQVJFQSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEJBUkJFUlNIT1AgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNCBcbiAgICAgICAgICAgICAgICAgTEFLRUZST05UL1dBVEVSRlJPTlQvUklWRVJCQU5LIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTElCUkFSWSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNBVklOR1MgQU5EIExPQU4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBCT1dMSU5HIEFMTEVZIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDMgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDTEVBTklORyBTVE9SRSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAzIFxuICAgICAgICAgICAgICAgICAgICAgICAgICBNRURJQ0FML0RFTlRBTCBPRkZJQ0UgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQlJJREdFIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIgXG4gICAgICAgICAgICAgIENPTExFR0UvVU5JVkVSU0lUWSBSRVNJREVOQ0UgSEFMTCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQ1VSUkVOQ1kgRVhDSEFOR0UgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMiBcbiAgICBBSVJQT1JUIEJVSUxESU5HIE5PTi1URVJNSU5BTCAtIFNFQ1VSRSBBUkVBIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEgXG4gICAgICAgICAgICAgICAgIEFJUlBPUlQgRVhURVJJT1IgLSBTRUNVUkUgQVJFQSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBBTklNQUwgSE9TUElUQUwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQVBQTElBTkNFIFNUT1JFIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIENUQSBUUkFJTiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxIFxuICAgICAgICAgICAgICAgICAgICAgICAgSkFJTCAvIExPQ0stVVAgRkFDSUxJVFkgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTkVXU1NUQU5EIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEgXG4ifQ== -->
+<pre><code>
+                                         STREET 
+                                         156564 
+                 PARKING LOT/GARAGE(NON.RESID.) 
+                                          14852 
+                                          OTHER 
+                                           4573 
+                                          ALLEY 
+                                           2308 
+                                    GAS STATION 
+                                           2111 
+                         DRIVEWAY - RESIDENTIAL 
+                                           1675 
+                  RESIDENTIAL YARD (FRONT/BACK) 
+                                           1536 
+                                      RESIDENCE 
+                                           1302 
+                               RESIDENCE-GARAGE 
+                                           1176 
+                                VACANT LOT/LAND 
+                                            985 
+                         VEHICLE NON-COMMERCIAL 
+                                            817 
+                                       SIDEWALK 
+                                            462 
+                        CHA PARKING LOT/GROUNDS 
+                                            405 
+                               AIRPORT/AIRCRAFT 
+                                            363 
+                POLICE FACILITY/VEH PARKING LOT 
+                                            266 
+                                  PARK PROPERTY 
+                                            255 
+                        SCHOOL, PUBLIC, GROUNDS 
+                                            206 
+                                      APARTMENT 
+                                            184 
+                           SPORTS ARENA/STADIUM 
+                                            166 
+                    CTA GARAGE / OTHER PROPERTY 
+                                            148 
+                   COMMERCIAL / BUSINESS OFFICE 
+                                            126 
+                                    HOTEL/MOTEL 
+                                            124 
+                       SCHOOL, PUBLIC, BUILDING 
+                                            114 
+                      HOSPITAL BUILDING/GROUNDS 
+                                            101 
+                             GROCERY FOOD STORE 
+                                             80 
+              CHURCH/SYNAGOGUE/PLACE OF WORSHIP 
+                                             56 
+                                     RESTAURANT 
+                                             49 
+                   GOVERNMENT BUILDING/PROPERTY 
+                                             48 
+                     COLLEGE/UNIVERSITY GROUNDS 
+                                             47 
+                                       CAR WASH 
+                                             44 
+                              CONSTRUCTION SITE 
+                                             35 
+                             SMALL RETAIL STORE 
+                                             33 
+              OTHER RAILROAD PROP / TRAIN DEPOT 
+                                             28 
+             AIRPORT EXTERIOR - NON-SECURE AREA 
+                                             24 
+                       SCHOOL, PRIVATE, GROUNDS 
+                                             23 
+                             VEHICLE-COMMERCIAL 
+                                             23 
+                               DEPARTMENT STORE 
+                                             22 
+                             HIGHWAY/EXPRESSWAY 
+                                             22 
+                   NURSING HOME/RETIREMENT HOME 
+                                             21 
+                                        TAXICAB 
+                                             21 
+                            MOVIE HOUSE/THEATER 
+                                             18 
+                        RESIDENCE PORCH/HALLWAY 
+                                             18 
+                                  BAR OR TAVERN 
+                                             17 
+                                      WAREHOUSE 
+                                             17 
+                 FACTORY/MANUFACTURING BUILDING 
+                                             16 
+                      SCHOOL, PRIVATE, BUILDING 
+                                             14 
+                            TAVERN/LIQUOR STORE 
+                                             14 
+                            AIRPORT PARKING LOT 
+                                             11 
+                  AIRPORT VENDING ESTABLISHMENT 
+                                             10 
+                                  ATHLETIC CLUB 
+                                              9 
+                                     DRUG STORE 
+                                              8 
+                OTHER COMMERCIAL TRANSPORTATION 
+                                              8 
+                                           BANK 
+                                              7 
+                              CONVENIENCE STORE 
+                                              7 
+                                FOREST PRESERVE 
+                                              6 
+ AIRPORT TERMINAL UPPER LEVEL - NON-SECURE AREA 
+                                              5 
+                                  CHA APARTMENT 
+                                              5 
+                                DAY CARE CENTER 
+                                              5 
+                                   FIRE STATION 
+                                              5 
+                             ABANDONED BUILDING 
+                                              4 
+AIRPORT BUILDING NON-TERMINAL - NON-SECURE AREA 
+                                              4 
+                                     BARBERSHOP 
+                                              4 
+                 LAKEFRONT/WATERFRONT/RIVERBANK 
+                                              4 
+                                        LIBRARY 
+                                              4 
+                               SAVINGS AND LOAN 
+                                              4 
+                                  BOWLING ALLEY 
+                                              3 
+                                 CLEANING STORE 
+                                              3 
+                          MEDICAL/DENTAL OFFICE 
+                                              3 
+                                         BRIDGE 
+                                              2 
+              COLLEGE/UNIVERSITY RESIDENCE HALL 
+                                              2 
+                              CURRENCY EXCHANGE 
+                                              2 
+    AIRPORT BUILDING NON-TERMINAL - SECURE AREA 
+                                              1 
+                 AIRPORT EXTERIOR - SECURE AREA 
+                                              1 
+                                ANIMAL HOSPITAL 
+                                              1 
+                                APPLIANCE STORE 
+                                              1 
+                                      CTA TRAIN 
+                                              1 
+                        JAIL / LOCK-UP FACILITY 
+                                              1 
+                                      NEWSSTAND 
+                                              1 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The top 5 locations are: STREET PARKING LOT/GARAGE(NON.RESID.) ALLEY GAS STATION DRIVEWAY - RESIDENTIAL</p>
+<p>Problem 4.2 - Popular Locations Create a subset of your data, only taking observations for which the theft happened in one of these five locations, and call this new data set “Top5”. To do this, you can use the | symbol. In lecture, we used the &amp; symbol to use two criteria to make a subset of the data. To only take observations that have a certain value in one variable or the other, the | character can be used in place of the &amp; symbol. This is also called a logical “or” operation.</p>
+<p>Alternately, you could create five different subsets, and then merge them together into one data frame using rbind.</p>
+<p>How many observations are in Top5?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5Ub3A1ID0gc3Vic2V0KG12dCwgTG9jYXRpb25EZXNjcmlwdGlvbj09XCJTVFJFRVRcIiB8IExvY2F0aW9uRGVzY3JpcHRpb249PVwiUEFSS0lORyBMT1QvR0FSQUdFKE5PTi5SRVNJRC4pXCIgfCBMb2NhdGlvbkRlc2NyaXB0aW9uPT1cIkFMTEVZXCIgfCBMb2NhdGlvbkRlc2NyaXB0aW9uPT1cIkdBUyBTVEFUSU9OXCIgfCBMb2NhdGlvbkRlc2NyaXB0aW9uPT1cIkRSSVZFV0FZIC0gUkVTSURFTlRJQUxcIilcbnN0cihUb3A1KVxuXG5gYGAifQ== -->
+<pre class="r"><code>
+Top5 = subset(mvt, LocationDescription==&quot;STREET&quot; | LocationDescription==&quot;PARKING LOT/GARAGE(NON.RESID.)&quot; | LocationDescription==&quot;ALLEY&quot; | LocationDescription==&quot;GAS STATION&quot; | LocationDescription==&quot;DRIVEWAY - RESIDENTIAL&quot;)
+str(Top5)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0MTc3NTEwIG9icy4gb2YgIDEzIHZhcmlhYmxlczpcbiAkIElEICAgICAgICAgICAgICAgICA6IGludCAgODk1MTM1NCA4OTUxMTQxIDg5NTIyMjMgODk1MTYwOCA4OTUwNzkzIDg5NTA3NjAgODk1MTYxMSA4OTUxODAyIDg5NTA3MDYgODk1MTU4NSAuLi5cbiAkIERhdGUgICAgICAgICAgICAgICA6IERhdGUsIGZvcm1hdDogXCIyMDEyLTEyLTMxXCIgXCIyMDEyLTEyLTMxXCIgLi4uXG4gJCBMb2NhdGlvbkRlc2NyaXB0aW9uOiBGYWN0b3Igdy8gNzggbGV2ZWxzIFwiQUJBTkRPTkVEIEJVSUxESU5HXCIsLi46IDcyIDcyIDcyIDcyIDcyIDcyIDcyIDcyIDcyIDcyIC4uLlxuICQgQXJyZXN0ICAgICAgICAgICAgIDogbG9naSAgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgVFJVRSBGQUxTRSAuLi5cbiAkIERvbWVzdGljICAgICAgICAgICA6IGxvZ2kgIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIC4uLlxuICQgQmVhdCAgICAgICAgICAgICAgIDogaW50ICA2MjMgMTIxMyA3MjQgMjExIDI1MjEgNDIzIDIzMSAxMDIxIDEyMTUgMTAxMSAuLi5cbiAkIERpc3RyaWN0ICAgICAgICAgICA6IGludCAgNiAxMiA3IDIgMjUgNCAyIDEwIDEyIDEwIC4uLlxuICQgQ29tbXVuaXR5QXJlYSAgICAgIDogaW50ICA2OSAyNCA2NyAzNSAxOSA0OCA0MCAyOSAyNCAyOSAuLi5cbiAkIFllYXIgICAgICAgICAgICAgICA6IGludCAgMjAxMiAyMDEyIDIwMTIgMjAxMiAyMDEyIDIwMTIgMjAxMiAyMDEyIDIwMTIgMjAxMiAuLi5cbiAkIExhdGl0dWRlICAgICAgICAgICA6IG51bSAgNDEuOCA0MS45IDQxLjggNDEuOCA0MS45IC4uLlxuICQgTG9uZ2l0dWRlICAgICAgICAgIDogbnVtICAtODcuNiAtODcuNyAtODcuNyAtODcuNiAtODcuOCAuLi5cbiAkIE1vbnRoICAgICAgICAgICAgICA6IGNociAgXCJEZWNlbWJlclwiIFwiRGVjZW1iZXJcIiBcIkRlY2VtYmVyXCIgXCJEZWNlbWJlclwiIC4uLlxuICQgV2Vla2RheSAgICAgICAgICAgIDogY2hyICBcIk1vbmRheVwiIFwiTW9uZGF5XCIgXCJNb25kYXlcIiBcIk1vbmRheVwiIC4uLlxuIn0= -->
+<pre><code>'data.frame':   177510 obs. of  13 variables:
+ $ ID                 : int  8951354 8951141 8952223 8951608 8950793 8950760 8951611 8951802 8950706 8951585 ...
+ $ Date               : Date, format: &quot;2012-12-31&quot; &quot;2012-12-31&quot; ...
+ $ LocationDescription: Factor w/ 78 levels &quot;ABANDONED BUILDING&quot;,..: 72 72 72 72 72 72 72 72 72 72 ...
+ $ Arrest             : logi  FALSE FALSE FALSE FALSE TRUE FALSE ...
+ $ Domestic           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Beat               : int  623 1213 724 211 2521 423 231 1021 1215 1011 ...
+ $ District           : int  6 12 7 2 25 4 2 10 12 10 ...
+ $ CommunityArea      : int  69 24 67 35 19 48 40 29 24 29 ...
+ $ Year               : int  2012 2012 2012 2012 2012 2012 2012 2012 2012 2012 ...
+ $ Latitude           : num  41.8 41.9 41.8 41.8 41.9 ...
+ $ Longitude          : num  -87.6 -87.7 -87.7 -87.6 -87.8 ...
+ $ Month              : chr  &quot;December&quot; &quot;December&quot; &quot;December&quot; &quot;December&quot; ...
+ $ Weekday            : chr  &quot;Monday&quot; &quot;Monday&quot; &quot;Monday&quot; &quot;Monday&quot; ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>There are 177510 observations in the Top5 locations</p>
+<p>Problem 4.3 - Popular Locations R will remember the other categories of the LocationDescription variable from the original dataset, so running table(Top5$LocationDescription) will have a lot of unnecessary output. To make our tables a bit nicer to read, we can refresh this factor variable. In your R console, type:</p>
+<p>Top5<span class="math inline">\(LocationDescription = factor(Top5\)</span>LocationDescription)</p>
+<p>If you run the str or table function on Top5 now, you should see that LocationDescription now only has 5 values, as we expect.</p>
+<p>Use the Top5 data frame to answer the remaining questions.</p>
+<p>One of the locations has a much higher arrest rate than the other locations. Which is it?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVG9wNSRMb2NhdGlvbkRlc2NyaXB0aW9uID0gZmFjdG9yKFRvcDUkTG9jYXRpb25EZXNjcmlwdGlvbilcbnN0cihUb3A1KVxuXG5gYGAifQ== -->
+<pre class="r"><code>Top5$LocationDescription = factor(Top5$LocationDescription)
+str(Top5)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0MTc3NTEwIG9icy4gb2YgIDEzIHZhcmlhYmxlczpcbiAkIElEICAgICAgICAgICAgICAgICA6IGludCAgODk1MTM1NCA4OTUxMTQxIDg5NTIyMjMgODk1MTYwOCA4OTUwNzkzIDg5NTA3NjAgODk1MTYxMSA4OTUxODAyIDg5NTA3MDYgODk1MTU4NSAuLi5cbiAkIERhdGUgICAgICAgICAgICAgICA6IERhdGUsIGZvcm1hdDogXCIyMDEyLTEyLTMxXCIgXCIyMDEyLTEyLTMxXCIgLi4uXG4gJCBMb2NhdGlvbkRlc2NyaXB0aW9uOiBGYWN0b3Igdy8gNSBsZXZlbHMgXCJBTExFWVwiLFwiRFJJVkVXQVkgLSBSRVNJREVOVElBTFwiLC4uOiA1IDUgNSA1IDUgNSA1IDUgNSA1IC4uLlxuICQgQXJyZXN0ICAgICAgICAgICAgIDogbG9naSAgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgVFJVRSBGQUxTRSAuLi5cbiAkIERvbWVzdGljICAgICAgICAgICA6IGxvZ2kgIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIC4uLlxuICQgQmVhdCAgICAgICAgICAgICAgIDogaW50ICA2MjMgMTIxMyA3MjQgMjExIDI1MjEgNDIzIDIzMSAxMDIxIDEyMTUgMTAxMSAuLi5cbiAkIERpc3RyaWN0ICAgICAgICAgICA6IGludCAgNiAxMiA3IDIgMjUgNCAyIDEwIDEyIDEwIC4uLlxuICQgQ29tbXVuaXR5QXJlYSAgICAgIDogaW50ICA2OSAyNCA2NyAzNSAxOSA0OCA0MCAyOSAyNCAyOSAuLi5cbiAkIFllYXIgICAgICAgICAgICAgICA6IGludCAgMjAxMiAyMDEyIDIwMTIgMjAxMiAyMDEyIDIwMTIgMjAxMiAyMDEyIDIwMTIgMjAxMiAuLi5cbiAkIExhdGl0dWRlICAgICAgICAgICA6IG51bSAgNDEuOCA0MS45IDQxLjggNDEuOCA0MS45IC4uLlxuICQgTG9uZ2l0dWRlICAgICAgICAgIDogbnVtICAtODcuNiAtODcuNyAtODcuNyAtODcuNiAtODcuOCAuLi5cbiAkIE1vbnRoICAgICAgICAgICAgICA6IGNociAgXCJEZWNlbWJlclwiIFwiRGVjZW1iZXJcIiBcIkRlY2VtYmVyXCIgXCJEZWNlbWJlclwiIC4uLlxuICQgV2Vla2RheSAgICAgICAgICAgIDogY2hyICBcIk1vbmRheVwiIFwiTW9uZGF5XCIgXCJNb25kYXlcIiBcIk1vbmRheVwiIC4uLlxuIn0= -->
+<pre><code>'data.frame':   177510 obs. of  13 variables:
+ $ ID                 : int  8951354 8951141 8952223 8951608 8950793 8950760 8951611 8951802 8950706 8951585 ...
+ $ Date               : Date, format: &quot;2012-12-31&quot; &quot;2012-12-31&quot; ...
+ $ LocationDescription: Factor w/ 5 levels &quot;ALLEY&quot;,&quot;DRIVEWAY - RESIDENTIAL&quot;,..: 5 5 5 5 5 5 5 5 5 5 ...
+ $ Arrest             : logi  FALSE FALSE FALSE FALSE TRUE FALSE ...
+ $ Domestic           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Beat               : int  623 1213 724 211 2521 423 231 1021 1215 1011 ...
+ $ District           : int  6 12 7 2 25 4 2 10 12 10 ...
+ $ CommunityArea      : int  69 24 67 35 19 48 40 29 24 29 ...
+ $ Year               : int  2012 2012 2012 2012 2012 2012 2012 2012 2012 2012 ...
+ $ Latitude           : num  41.8 41.9 41.8 41.8 41.9 ...
+ $ Longitude          : num  -87.6 -87.7 -87.7 -87.6 -87.8 ...
+ $ Month              : chr  &quot;December&quot; &quot;December&quot; &quot;December&quot; &quot;December&quot; ...
+ $ Weekday            : chr  &quot;Monday&quot; &quot;Monday&quot; &quot;Monday&quot; &quot;Monday&quot; ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoVG9wNSRMb2NhdGlvbkRlc2NyaXB0aW9uLCBUb3A1JEFycmVzdClcbmBgYCJ9 -->
+<pre class="r"><code>table(Top5$LocationDescription, Top5$Arrest)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBGQUxTRSAgIFRSVUVcbiAgQUxMRVkgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjA1OSAgICAyNDlcbiAgRFJJVkVXQVkgLSBSRVNJREVOVElBTCAgICAgICAgICAgMTU0MyAgICAxMzJcbiAgR0FTIFNUQVRJT04gICAgICAgICAgICAgICAgICAgICAgMTY3MiAgICA0MzlcbiAgUEFSS0lORyBMT1QvR0FSQUdFKE5PTi5SRVNJRC4pICAxMzI0OSAgIDE2MDNcbiAgU1RSRUVUICAgICAgICAgICAgICAgICAgICAgICAgIDE0NDk2OSAgMTE1OTVcbiJ9 -->
+<pre><code>                                
+                                  FALSE   TRUE
+  ALLEY                            2059    249
+  DRIVEWAY - RESIDENTIAL           1543    132
+  GAS STATION                      1672    439
+  PARKING LOT/GARAGE(NON.RESID.)  13249   1603
+  STREET                         144969  11595</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jIEFsbGV5XG4yNDkgLyAoMjQ5ICsgMjA1OSlcblxuYGBgIn0= -->
+<pre class="r"><code>
+# Alley
+249 / (249 + 2059)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTA3ODg1NlxuIn0= -->
+<pre><code>[1] 0.1078856</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBEcml2ZXdheVxuMTMyIC8gKDEzMiArIDE1NDMpXG5gYGAifQ== -->
+<pre class="r"><code># Driveway
+132 / (132 + 1543)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDc4ODA1OTdcbiJ9 -->
+<pre><code>[1] 0.07880597</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHYXMgU3RhdGlvblxuNDM5IC8gKDQzOSArIDE2NzIpXG5gYGAifQ== -->
+<pre class="r"><code># Gas Station
+439 / (439 + 1672)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMjA3OTU4M1xuIn0= -->
+<pre><code>[1] 0.2079583</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBQYXJraW5nIGxvdFxuMTYwMyAvICgxNjAzICsgMTMyNDkpXG5gYGAifQ== -->
+<pre class="r"><code># Parking lot
+1603 / (1603 + 13249)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTA3OTMxNlxuIn0= -->
+<pre><code>[1] 0.1079316</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTdHJlZXRcbjExNTk1IC8gKDExNTk1ICsgMTQ0OTY5KVxuYGBgIn0= -->
+<pre class="r"><code># Street
+11595 / (11595 + 144969)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDc0MDU5MTdcbiJ9 -->
+<pre><code>[1] 0.07405917</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Gas Station has much higher arrest rate than the other locations.</p>
+<p>Problem 4.4 - Popular Locations On which day of the week do the most motor vehicle thefts at gas stations happen?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoZ2FzX3N0YXRpb25fYXJyZXN0JEFycmVzdCwgZ2FzX3N0YXRpb25fYXJyZXN0JFdlZWtkYXkpXG5cbmBgYCJ9 -->
+<pre class="r"><code>table(gas_station_arrest$Arrest, gas_station_arrest$Weekday)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgIFxuICAgICAgICBGcmlkYXkgTW9uZGF5IFNhdHVyZGF5IFN1bmRheSBUaHVyc2RheSBUdWVzZGF5IFdlZG5lc2RheVxuICBGQUxTRSAgICAyNjggICAgMjE1ICAgICAgMjcwICAgIDI2NyAgICAgIDIyOSAgICAgMjEzICAgICAgIDIxMFxuICBUUlVFICAgICAgNjQgICAgIDY1ICAgICAgIDY4ICAgICA2OSAgICAgICA1MyAgICAgIDU3ICAgICAgICA2M1xuIn0= -->
+<pre><code>       
+        Friday Monday Saturday Sunday Thursday Tuesday Wednesday
+  FALSE    268    215      270    267      229     213       210
+  TRUE      64     65       68     69       53      57        63</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>most motor vehicle thefts at gas stations happen on Saturday</p>
+<p>Problem 4.5 - Popular Locations On which day of the week do the fewest motor vehicle thefts in residential driveways happen?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2FzX3N0YXRpb25fYXJyZXN0IDwtIHN1YnNldChUb3A1LCBMb2NhdGlvbkRlc2NyaXB0aW9uPT1cIkRSSVZFV0FZIC0gUkVTSURFTlRJQUxcIilcbnRhYmxlKGdhc19zdGF0aW9uX2FycmVzdCRBcnJlc3QsIGdhc19zdGF0aW9uX2FycmVzdCRXZWVrZGF5KVxuYGBgIn0= -->
+<pre class="r"><code>gas_station_arrest &lt;- subset(Top5, LocationDescription==&quot;DRIVEWAY - RESIDENTIAL&quot;)
+table(gas_station_arrest$Arrest, gas_station_arrest$Weekday)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgIFxuICAgICAgICBGcmlkYXkgTW9uZGF5IFNhdHVyZGF5IFN1bmRheSBUaHVyc2RheSBUdWVzZGF5IFdlZG5lc2RheVxuICBGQUxTRSAgICAyMzggICAgMjM3ICAgICAgMTgyICAgIDE5NyAgICAgIDI0NyAgICAgMjI5ICAgICAgIDIxM1xuICBUUlVFICAgICAgMTkgICAgIDE4ICAgICAgIDIwICAgICAyNCAgICAgICAxNiAgICAgIDE0ICAgICAgICAyMVxuIn0= -->
+<pre><code>       
+        Friday Monday Saturday Sunday Thursday Tuesday Wednesday
+  FALSE    238    237      182    197      247     229       213
+  TRUE      19     18       20     24       16      14        21</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>the fewest motor vehicle thefts in residential driveways happen on Saturday</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQW4gQW5hbHl0aWNhbCBEZXRlY3RpdmUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KTGlzdCBvZiBkZXNjcmlwdGlvbnMgb2YgdGhlIHZhcmlhYmxlczoKCklEOiBhIHVuaXF1ZSBpZGVudGlmaWVyIGZvciBlYWNoIG9ic2VydmF0aW9uCkRhdGU6IHRoZSBkYXRlIHRoZSBjcmltZSBvY2N1cnJlZApMb2NhdGlvbkRlc2NyaXB0aW9uOiB0aGUgbG9jYXRpb24gd2hlcmUgdGhlIGNyaW1lIG9jY3VycmVkCkFycmVzdDogd2hldGhlciBvciBub3QgYW4gYXJyZXN0IHdhcyBtYWRlIGZvciB0aGUgY3JpbWUgKFRSVUUgaWYgYW4gYXJyZXN0IHdhcyBtYWRlLCBhbmQgRkFMU0UgaWYgYW4gYXJyZXN0IHdhcyBub3QgbWFkZSkKRG9tZXN0aWM6IHdoZXRoZXIgb3Igbm90IHRoZSBjcmltZSB3YXMgYSBkb21lc3RpYyBjcmltZSwgbWVhbmluZyB0aGF0IGl0IHdhcyBjb21taXR0ZWQgYWdhaW5zdCBhIGZhbWlseSBtZW1iZXIgKFRSVUUgaWYgaXQgd2FzIGRvbWVzdGljLCBhbmQgRkFMU0UgaWYgaXQgd2FzIG5vdCBkb21lc3RpYykKQmVhdDogdGhlIGFyZWEsIG9yICJiZWF0IiBpbiB3aGljaCB0aGUgY3JpbWUgb2NjdXJyZWQuIFRoaXMgaXMgdGhlIHNtYWxsZXN0IHJlZ2lvbmFsIGRpdmlzaW9uIGRlZmluZWQgYnkgdGhlIENoaWNhZ28gcG9saWNlIGRlcGFydG1lbnQuCkRpc3RyaWN0OiB0aGUgcG9saWNlIGRpc3RyaWN0IGluIHdoaWNoIHRoZSBjcmltZSBvY2N1cmVkLiBFYWNoIGRpc3RyaWN0IGlzIGNvbXBvc2VkIG9mIG1hbnkgYmVhdHMsIGFuZCBhcmUgZGVmaW5lZCBieSB0aGUgQ2hpY2FnbyBQb2xpY2UgRGVwYXJ0bWVudC4KQ29tbXVuaXR5QXJlYTogdGhlIGNvbW11bml0eSBhcmVhIGluIHdoaWNoIHRoZSBjcmltZSBvY2N1cnJlZC4gU2luY2UgdGhlIDE5MjBzLCBDaGljYWdvIGhhcyBiZWVuIGRpdmlkZWQgaW50byB3aGF0IGFyZSBjYWxsZWQgImNvbW11bml0eSBhcmVhcyIsIG9mIHdoaWNoIHRoZXJlIGFyZSBub3cgNzcuIFRoZSBjb21tdW5pdHkgYXJlYXMgd2VyZSBkZXZpc2VkIGluIGFuIGF0dGVtcHQgdG8gY3JlYXRlIHNvY2lhbGx5IGhvbW9nZW5lb3VzIHJlZ2lvbnMuClllYXI6IHRoZSB5ZWFyIGluIHdoaWNoIHRoZSBjcmltZSBvY2N1cnJlZC4KTGF0aXR1ZGU6IHRoZSBsYXRpdHVkZSBvZiB0aGUgbG9jYXRpb24gYXQgd2hpY2ggdGhlIGNyaW1lIG9jY3VycmVkLgpMb25naXR1ZGU6IHRoZSBsb25naXR1ZGUgb2YgdGhlIGxvY2F0aW9uIGF0IHdoaWNoIHRoZSBjcmltZSBvY2N1cnJlZC4KCgpQcm9ibGVtIDEuMSAtIExvYWRpbmcgdGhlIERhdGEKUmVhZCB0aGUgZGF0YXNldCBtdnRXZWVrMS5jc3YgaW50byBSLCB1c2luZyB0aGUgcmVhZC5jc3YgZnVuY3Rpb24sIGFuZCBjYWxsIHRoZSBkYXRhIGZyYW1lICJtdnQiLiBSZW1lbWJlciB0byBuYXZpZ2F0ZSB0byB0aGUgZGlyZWN0b3J5IG9uIHlvdXIgY29tcHV0ZXIgY29udGFpbmluZyB0aGUgZmlsZSBtdnRXZWVrMS5jc3YgZmlyc3QuIEl0IG1heSB0YWtlIGEgZmV3IG1pbnV0ZXMgdG8gcmVhZCBpbiB0aGUgZGF0YSwgc2luY2UgaXQgaXMgcHJldHR5IGxhcmdlLiBUaGVuLCB1c2UgdGhlIHN0ciBhbmQgc3VtbWFyeSBmdW5jdGlvbnMgdG8gYW5zd2VyIHRoZSBmb2xsb3dpbmcgcXVlc3Rpb25zLgoKSG93IG1hbnkgcm93cyBvZiBkYXRhIChvYnNlcnZhdGlvbnMpIGFyZSBpbiB0aGlzIGRhdGFzZXQ/CmBgYHtyfQptdnQgPC0gcmVhZC5jc3YoImRhdGEvYW5hbHl0aWNhbC1kZXRlY3RpdmUvbXZ0V2VlazEuY3N2IikKc3RyKG12dCkKYGBgClRoZXJlIGFyZSAxOTE2NDEgcm93cyBvZiBkYXRhIGluIHRoZSBkYXRhc2V0CgoKUHJvYmxlbSAxLjIgLSBMb2FkaW5nIHRoZSBEYXRhCkhvdyBtYW55IHZhcmlhYmxlcyBhcmUgaW4gdGhpcyBkYXRhc2V0PwoKVGhlcmUgYXJlIDExIHZhcmlhYmxlcwoKUHJvYmxlbSAxLjMgLSBMb2FkaW5nIHRoZSBEYXRhClVzaW5nIHRoZSAibWF4IiBmdW5jdGlvbiwgd2hhdCBpcyB0aGUgbWF4aW11bSB2YWx1ZSBvZiB0aGUgdmFyaWFibGUgIklEIj8KYGBge3J9Cm1heChtdnQkSUQpCmBgYApUaGUgbWF4aW11bSB2YWx1ZSBvZiBJRCBjb2x1bW4gaXMgOTE4MTE1MQoKClByb2JsZW0gMS40IC0gTG9hZGluZyB0aGUgRGF0YQpXaGF0IGlzIHRoZSBtaW5pbXVtIHZhbHVlIG9mIHRoZSB2YXJpYWJsZSAiQmVhdCI/CmBgYHtyfQptaW4obXZ0JEJlYXQpCmBgYApUaGUgbWluaW11bSB2YWx1ZSBvZiBCZWF0IGNvbHVtbiBpcyAxMTEKCgpQcm9ibGVtIDEuNSAtIExvYWRpbmcgdGhlIERhdGEKSG93IG1hbnkgb2JzZXJ2YXRpb25zIGhhdmUgdmFsdWUgVFJVRSBpbiB0aGUgQXJyZXN0IHZhcmlhYmxlICh0aGlzIGlzIHRoZSBudW1iZXIgb2YgY3JpbWVzIGZvciB3aGljaCBhbiBhcnJlc3Qgd2FzIG1hZGUpPwpgYGB7cn0Kc3VtKG12dCRBcnJlc3QgPT0gVFJVRSkKYGBgClRoZSBudW1iZXIgb2YgY3JpbWVzIGZvciB3aGljaCBhbiBhcnJlc3Qgd2FzIG1hZGUgaXMgMTU1MzYKCgpQcm9ibGVtIDEuNiAtIExvYWRpbmcgdGhlIERhdGEKSG93IG1hbnkgb2JzZXJ2YXRpb25zIGhhdmUgYSBMb2NhdGlvbkRlc2NyaXB0aW9uIHZhbHVlIG9mIEFMTEVZPwpgYGB7cn0Kc3VtKG12dCRMb2NhdGlvbkRlc2NyaXB0aW9uID09ICJBTExFWSIpCmBgYAoKUHJvYmxlbSAyLjEgLSBVbmRlcnN0YW5kaW5nIERhdGVzIGluIFIKSW4gbWFueSBkYXRhc2V0cywgbGlrZSB0aGlzIG9uZSwgeW91IGhhdmUgYSBkYXRlIGZpZWxkLiBVbmZvcnR1bmF0ZWx5LCBSIGRvZXMgbm90IGF1dG9tYXRpY2FsbHkgcmVjb2duaXplIGVudHJpZXMgdGhhdCBsb29rIGxpa2UgZGF0ZXMuIFdlIG5lZWQgdG8gdXNlIGEgZnVuY3Rpb24gaW4gUiB0byBleHRyYWN0IHRoZSBkYXRlIGFuZCB0aW1lLiBUYWtlIGEgbG9vayBhdCB0aGUgZmlyc3QgZW50cnkgb2YgRGF0ZSAocmVtZW1iZXIgdG8gdXNlIHNxdWFyZSBicmFja2V0cyB3aGVuIGxvb2tpbmcgYXQgYSBjZXJ0YWluIGVudHJ5IG9mIGEgdmFyaWFibGUpLgoKSW4gd2hhdCBmb3JtYXQgYXJlIHRoZSBlbnRyaWVzIGluIHRoZSB2YXJpYWJsZSBEYXRlPwpgYGB7cn0KbXZ0JERhdGVbMV0KYGBgClRoZSBkYXRhIGZvcm1hdCBpcyBpbiBNb250aC9EYXkvWWVhciBIb3VyOk1pbnV0ZQoKCgpQcm9ibGVtIDIuMiAtIFVuZGVyc3RhbmRpbmcgRGF0ZXMgaW4gUgpOb3csIGxldCdzIGNvbnZlcnQgdGhlc2UgY2hhcmFjdGVycyBpbnRvIGEgRGF0ZSBvYmplY3QgaW4gUi4gSW4geW91ciBSIGNvbnNvbGUsIHR5cGUKCkRhdGVDb252ZXJ0ID0gYXMuRGF0ZShzdHJwdGltZShtdnQkRGF0ZSwgIiVtLyVkLyV5ICVIOiVNIikpCgpUaGlzIGNvbnZlcnRzIHRoZSB2YXJpYWJsZSAiRGF0ZSIgaW50byBhIERhdGUgb2JqZWN0IGluIFIuIFRha2UgYSBsb29rIGF0IHRoZSB2YXJpYWJsZSBEYXRlQ29udmVydCB1c2luZyB0aGUgc3VtbWFyeSBmdW5jdGlvbi4KCldoYXQgaXMgdGhlIG1vbnRoIGFuZCB5ZWFyIG9mIHRoZSBtZWRpYW4gZGF0ZSBpbiBvdXIgZGF0YXNldD8gRW50ZXIgeW91ciBhbnN3ZXIgYXMgIk1vbnRoIFllYXIiLCB3aXRob3V0IHRoZSBxdW90ZXMuIChFeDogaWYgdGhlIGFuc3dlciB3YXMgMjAwOC0wMy0yOCwgeW91IHdvdWxkIGdpdmUgdGhlIGFuc3dlciAiTWFyY2ggMjAwOCIsIHdpdGhvdXQgdGhlIHF1b3Rlcy4pCgpgYGB7cn0KRGF0ZUNvbnZlcnQgPSBhcy5EYXRlKHN0cnB0aW1lKG12dCREYXRlLCAiJW0vJWQvJXkgJUg6JU0iKSkKCnN1bW1hcnkoRGF0ZUNvbnZlcnQpCmBgYApUaGUgbWVkaWFuIGlzIE1heSAyMDA2CgoKUHJvYmxlbSAyLjMgLSBVbmRlcnN0YW5kaW5nIERhdGVzIGluIFIKTm93LCBsZXQncyBleHRyYWN0IHRoZSBtb250aCBhbmQgdGhlIGRheSBvZiB0aGUgd2VlaywgYW5kIGFkZCB0aGVzZSB2YXJpYWJsZXMgdG8gb3VyIGRhdGEgZnJhbWUgbXZ0LiBXZSBjYW4gZG8gdGhpcyB3aXRoIHR3byBzaW1wbGUgZnVuY3Rpb25zLiBUeXBlIHRoZSBmb2xsb3dpbmcgY29tbWFuZHMgaW4gUjoKCm12dCRNb250aCA9IG1vbnRocyhEYXRlQ29udmVydCkKCm12dCRXZWVrZGF5ID0gd2Vla2RheXMoRGF0ZUNvbnZlcnQpCgpUaGlzIGNyZWF0ZXMgdHdvIG5ldyB2YXJpYWJsZXMgaW4gb3VyIGRhdGEgZnJhbWUsIE1vbnRoIGFuZCBXZWVrZGF5LCBhbmQgc2V0cyB0aGVtIGVxdWFsIHRvIHRoZSBtb250aCBhbmQgd2Vla2RheSB2YWx1ZXMgdGhhdCB3ZSBjYW4gZXh0cmFjdCBmcm9tIHRoZSBEYXRlIG9iamVjdC4gTGFzdGx5LCByZXBsYWNlIHRoZSBvbGQgRGF0ZSB2YXJpYWJsZSB3aXRoIERhdGVDb252ZXJ0IGJ5IHR5cGluZzoKCm12dCREYXRlID0gRGF0ZUNvbnZlcnQKClVzaW5nIHRoZSB0YWJsZSBjb21tYW5kLCBhbnN3ZXIgdGhlIGZvbGxvd2luZyBxdWVzdGlvbnMuCgpJbiB3aGljaCBtb250aCBkaWQgdGhlIGZld2VzdCBtb3RvciB2ZWhpY2xlIHRoZWZ0cyBvY2N1cj8KYGBge3J9Cm12dCRNb250aCA9IG1vbnRocyhEYXRlQ29udmVydCkKbXZ0JFdlZWtkYXkgPSB3ZWVrZGF5cyhEYXRlQ29udmVydCkKbXZ0JERhdGUgPSBEYXRlQ29udmVydAoKdGFibGUobXZ0JE1vbnRoKQpgYGAKSW4gRmVicnVhcnkKCgpQcm9ibGVtIDIuNCAtIFVuZGVyc3RhbmRpbmcgRGF0ZXMgaW4gUgpPbiB3aGljaCB3ZWVrZGF5IGRpZCB0aGUgbW9zdCBtb3RvciB2ZWhpY2xlIHRoZWZ0cyBvY2N1cj8KYGBge3J9CnRhYmxlKG12dCRXZWVrZGF5KQpgYGAKSW4gRnJpZGF5CgoKUHJvYmxlbSAyLjUgLSBVbmRlcnN0YW5kaW5nIERhdGVzIGluIFIKRWFjaCBvYnNlcnZhdGlvbiBpbiB0aGUgZGF0YXNldCByZXByZXNlbnRzIGEgbW90b3IgdmVoaWNsZSB0aGVmdCwgYW5kIHRoZSBBcnJlc3QgdmFyaWFibGUgaW5kaWNhdGVzIHdoZXRoZXIgYW4gYXJyZXN0IHdhcyBsYXRlciBtYWRlIGZvciB0aGlzIHRoZWZ0LiBXaGljaCBtb250aCBoYXMgdGhlIGxhcmdlc3QgbnVtYmVyIG9mIG1vdG9yIHZlaGljbGUgdGhlZnRzIGZvciB3aGljaCBhbiBhcnJlc3Qgd2FzIG1hZGU/CmBgYHtyfQp0YWJsZShtdnQkTW9udGgsIG12dCRBcnJlc3QpCmBgYApKYW51YXJ5IGlzIHRoZSBtb250aCBoYXMgdGhlIGxhcmdlc3QgbnVtYmVyIG9mIG1vdG9yIHZlaGljbGUgdGhlZnRzIGZvciB3aGljaCBhbiBhcnJlc3Qgd2FzIG1hZGUKCgpQcm9ibGVtIDMuMSAtIFZpc3VhbGl6aW5nIENyaW1lIFRyZW5kcwpOb3csIGxldCdzIG1ha2Ugc29tZSBwbG90cyB0byBoZWxwIHVzIGJldHRlciB1bmRlcnN0YW5kIGhvdyBjcmltZSBoYXMgY2hhbmdlZCBvdmVyIHRpbWUgaW4gQ2hpY2Fnby4gVGhyb3VnaG91dCB0aGlzIHByb2JsZW0sIGFuZCBpbiBnZW5lcmFsLCB5b3UgY2FuIHNhdmUgeW91ciBwbG90IHRvIGEgZmlsZS4gRm9yIG1vcmUgaW5mb3JtYXRpb24sIHRoaXMgd2Vic2l0ZSB2ZXJ5IGNsZWFybHkgZXhwbGFpbnMgdGhlIHByb2Nlc3MuCgpGaXJzdCwgbGV0J3MgbWFrZSBhIGhpc3RvZ3JhbSBvZiB0aGUgdmFyaWFibGUgRGF0ZS4gV2UnbGwgYWRkIGFuIGV4dHJhIGFyZ3VtZW50LCB0byBzcGVjaWZ5IHRoZSBudW1iZXIgb2YgYmFycyB3ZSB3YW50IGluIG91ciBoaXN0b2dyYW0uIEluIHlvdXIgUiBjb25zb2xlLCB0eXBlCgpoaXN0KG12dCREYXRlLCBicmVha3M9MTAwKQoKTG9va2luZyBhdCB0aGUgaGlzdG9ncmFtLCBhbnN3ZXIgdGhlIGZvbGxvd2luZyBxdWVzdGlvbnMuCgpJbiBnZW5lcmFsLCBkb2VzIGl0IGxvb2sgbGlrZSBjcmltZSBpbmNyZWFzZXMgb3IgZGVjcmVhc2VzIGZyb20gMjAwMiAtIDIwMTI/CgpgYGB7cn0KaGlzdChtdnQkRGF0ZSwgYnJlYWtzPTEwMCkKYGBgCkluIGdlbmVyYWwgYXNwZWN0cywgaXQgbG9va3MgbGlrZSBpdCdzIGRlY3JlYXNpbmcKCkluIGdlbmVyYWwsIGRvZXMgaXQgbG9vayBsaWtlIGNyaW1lIGluY3JlYXNlcyBvciBkZWNyZWFzZXMgZnJvbSAyMDA1IC0gMjAwOD8KSXQgZGVjcmVhc2VzCgpJbiBnZW5lcmFsLCBkb2VzIGl0IGxvb2sgbGlrZSBjcmltZSBpbmNyZWFzZXMgb3IgZGVjcmVhc2VzIGZyb20gMjAwOSAtIDIwMTE/Ckl0IGluY3JlYXNlcwoKClByb2JsZW0gMy4yIC0gVmlzdWFsaXppbmcgQ3JpbWUgVHJlbmRzCk5vdywgbGV0J3Mgc2VlIGhvdyBhcnJlc3RzIGhhdmUgY2hhbmdlZCBvdmVyIHRpbWUuIENyZWF0ZSBhIGJveHBsb3Qgb2YgdGhlIHZhcmlhYmxlICJEYXRlIiwgc29ydGVkIGJ5IHRoZSB2YXJpYWJsZSAiQXJyZXN0IiAoaWYgeW91IGFyZSBub3QgZmFtaWxpYXIgd2l0aCBib3hwbG90cyBhbmQgd291bGQgbGlrZSB0byBsZWFybiBtb3JlLCBjaGVjayBvdXQgdGhpcyB0dXRvcmlhbCkuIEluIGEgYm94cGxvdCwgdGhlIGJvbGQgaG9yaXpvbnRhbCBsaW5lIGlzIHRoZSBtZWRpYW4gdmFsdWUgb2YgdGhlIGRhdGEsIHRoZSBib3ggc2hvd3MgdGhlIHJhbmdlIG9mIHZhbHVlcyBiZXR3ZWVuIHRoZSBmaXJzdCBxdWFydGlsZSBhbmQgdGhpcmQgcXVhcnRpbGUsIGFuZCB0aGUgd2hpc2tlcnMgKHRoZSBkb3R0ZWQgbGluZXMgZXh0ZW5kaW5nIG91dHNpZGUgdGhlIGJveCkgc2hvdyB0aGUgbWluaW11bSBhbmQgbWF4aW11bSB2YWx1ZXMsIGV4Y2x1ZGluZyBhbnkgb3V0bGllcnMgKHdoaWNoIGFyZSBwbG90dGVkIGFzIGNpcmNsZXMpLiBPdXRsaWVycyBhcmUgZGVmaW5lZCBieSBmaXJzdCBjb21wdXRpbmcgdGhlIGRpZmZlcmVuY2UgYmV0d2VlbiB0aGUgZmlyc3QgYW5kIHRoaXJkIHF1YXJ0aWxlIHZhbHVlcywgb3IgdGhlIGhlaWdodCBvZiB0aGUgYm94LiBUaGlzIG51bWJlciBpcyBjYWxsZWQgdGhlIEludGVyLVF1YXJ0aWxlIFJhbmdlIChJUVIpLiBBbnkgcG9pbnQgdGhhdCBpcyBncmVhdGVyIHRoYW4gdGhlIHRoaXJkIHF1YXJ0aWxlIHBsdXMgdGhlIElRUiBvciBsZXNzIHRoYW4gdGhlIGZpcnN0IHF1YXJ0aWxlIG1pbnVzIHRoZSBJUVIgaXMgY29uc2lkZXJlZCBhbiBvdXRsaWVyLgoKRG9lcyBpdCBsb29rIGxpa2UgdGhlcmUgd2VyZSBtb3JlIGNyaW1lcyBmb3Igd2hpY2ggYXJyZXN0cyB3ZXJlIG1hZGUgaW4gdGhlIGZpcnN0IGhhbGYgb2YgdGhlIHRpbWUgcGVyaW9kIG9yIHRoZSBzZWNvbmQgaGFsZiBvZiB0aGUgdGltZSBwZXJpb2Q/IChOb3RlIHRoYXQgdGhlIHRpbWUgcGVyaW9kIGlzIGZyb20gMjAwMSB0byAyMDEyLCBzbyB0aGUgbWlkZGxlIG9mIHRoZSB0aW1lIHBlcmlvZCBpcyB0aGUgYmVnaW5uaW5nIG9mIDIwMDcuKQoKYGBge3J9CmJveHBsb3QobXZ0JERhdGUgfiBtdnQkQXJyZXN0KQpgYGAKSW4gdGhlIGZpcnN0IGhhbGYuIFRoaXMgaXMgZHVlIHRvIHRoZSBmYWN0IHRoYXQgdGhlIFRSVUUgYm94cGxvdCwgaXMgc2tld2VkIHRvd2FyZHMgdGhlIGJvdHRvbSBvZiB0aGUgcGxvdCB0aGlzIG1lYW5zIHRoYXQgbW9yZSBjcmltZXMgZm9yIHdoaWNoIGFycmVzdCB3ZXJlIG1hZGUgaW4gdGhlIGZpcnN0IGhhbGYgb2YgdGhlIHRpbWUgcGVyaW9kLgoKClByb2JsZW0gMy4zIC0gVmlzdWFsaXppbmcgQ3JpbWUgVHJlbmRzCkxldCdzIGludmVzdGlnYXRlIHRoaXMgZnVydGhlci4gVXNlIHRoZSB0YWJsZSBmdW5jdGlvbiBmb3IgdGhlIG5leHQgZmV3IHF1ZXN0aW9ucy4KCkZvciB3aGF0IHByb3BvcnRpb24gb2YgbW90b3IgdmVoaWNsZSB0aGVmdHMgaW4gMjAwMSB3YXMgYW4gYXJyZXN0IG1hZGU/CgpOb3RlOiBpbiB0aGlzIHF1ZXN0aW9uIGFuZCBtYW55IG90aGVycyBpbiB0aGUgY291cnNlLCB3ZSBhcmUgYXNraW5nIGZvciBhbiBhbnN3ZXIgYXMgYSBwcm9wb3J0aW9uLiBUaGVyZWZvcmUsIHlvdXIgYW5zd2VyIHNob3VsZCB0YWtlIGEgdmFsdWUgYmV0d2VlbiAwIGFuZCAxLgpgYGB7cn0KdGFibGUobXZ0JEFycmVzdCwgbXZ0JFllYXIpCmBgYApgYGB7cn0KMjE1Mi8oMjE1MiArIDE4NTE3KQpgYGAKClByb2JsZW0gMy40IC0gVmlzdWFsaXppbmcgQ3JpbWUgVHJlbmRzCkZvciB3aGF0IHByb3BvcnRpb24gb2YgbW90b3IgdmVoaWNsZSB0aGVmdHMgaW4gMjAwNyB3YXMgYW4gYXJyZXN0IG1hZGU/CmBgYHtyfQoxMjEyLygxMjEyKzEzMDY4KQpgYGAKClByb2JsZW0gMy41IC0gVmlzdWFsaXppbmcgQ3JpbWUgVHJlbmRzCjEvMSBwdW50byAoY2FsaWZpY2FkbykKRm9yIHdoYXQgcHJvcG9ydGlvbiBvZiBtb3RvciB2ZWhpY2xlIHRoZWZ0cyBpbiAyMDEyIHdhcyBhbiBhcnJlc3QgbWFkZT8KYGBge3J9CjU1MC8oNTUwICsgMTM1NDIpCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQW4gQW5hbHl0aWNhbCBEZXRlY3RpdmUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KTGlzdCBvZiBkZXNjcmlwdGlvbnMgb2YgdGhlIHZhcmlhYmxlczoKCklEOiBhIHVuaXF1ZSBpZGVudGlmaWVyIGZvciBlYWNoIG9ic2VydmF0aW9uCkRhdGU6IHRoZSBkYXRlIHRoZSBjcmltZSBvY2N1cnJlZApMb2NhdGlvbkRlc2NyaXB0aW9uOiB0aGUgbG9jYXRpb24gd2hlcmUgdGhlIGNyaW1lIG9jY3VycmVkCkFycmVzdDogd2hldGhlciBvciBub3QgYW4gYXJyZXN0IHdhcyBtYWRlIGZvciB0aGUgY3JpbWUgKFRSVUUgaWYgYW4gYXJyZXN0IHdhcyBtYWRlLCBhbmQgRkFMU0UgaWYgYW4gYXJyZXN0IHdhcyBub3QgbWFkZSkKRG9tZXN0aWM6IHdoZXRoZXIgb3Igbm90IHRoZSBjcmltZSB3YXMgYSBkb21lc3RpYyBjcmltZSwgbWVhbmluZyB0aGF0IGl0IHdhcyBjb21taXR0ZWQgYWdhaW5zdCBhIGZhbWlseSBtZW1iZXIgKFRSVUUgaWYgaXQgd2FzIGRvbWVzdGljLCBhbmQgRkFMU0UgaWYgaXQgd2FzIG5vdCBkb21lc3RpYykKQmVhdDogdGhlIGFyZWEsIG9yICJiZWF0IiBpbiB3aGljaCB0aGUgY3JpbWUgb2NjdXJyZWQuIFRoaXMgaXMgdGhlIHNtYWxsZXN0IHJlZ2lvbmFsIGRpdmlzaW9uIGRlZmluZWQgYnkgdGhlIENoaWNhZ28gcG9saWNlIGRlcGFydG1lbnQuCkRpc3RyaWN0OiB0aGUgcG9saWNlIGRpc3RyaWN0IGluIHdoaWNoIHRoZSBjcmltZSBvY2N1cmVkLiBFYWNoIGRpc3RyaWN0IGlzIGNvbXBvc2VkIG9mIG1hbnkgYmVhdHMsIGFuZCBhcmUgZGVmaW5lZCBieSB0aGUgQ2hpY2FnbyBQb2xpY2UgRGVwYXJ0bWVudC4KQ29tbXVuaXR5QXJlYTogdGhlIGNvbW11bml0eSBhcmVhIGluIHdoaWNoIHRoZSBjcmltZSBvY2N1cnJlZC4gU2luY2UgdGhlIDE5MjBzLCBDaGljYWdvIGhhcyBiZWVuIGRpdmlkZWQgaW50byB3aGF0IGFyZSBjYWxsZWQgImNvbW11bml0eSBhcmVhcyIsIG9mIHdoaWNoIHRoZXJlIGFyZSBub3cgNzcuIFRoZSBjb21tdW5pdHkgYXJlYXMgd2VyZSBkZXZpc2VkIGluIGFuIGF0dGVtcHQgdG8gY3JlYXRlIHNvY2lhbGx5IGhvbW9nZW5lb3VzIHJlZ2lvbnMuClllYXI6IHRoZSB5ZWFyIGluIHdoaWNoIHRoZSBjcmltZSBvY2N1cnJlZC4KTGF0aXR1ZGU6IHRoZSBsYXRpdHVkZSBvZiB0aGUgbG9jYXRpb24gYXQgd2hpY2ggdGhlIGNyaW1lIG9jY3VycmVkLgpMb25naXR1ZGU6IHRoZSBsb25naXR1ZGUgb2YgdGhlIGxvY2F0aW9uIGF0IHdoaWNoIHRoZSBjcmltZSBvY2N1cnJlZC4KCgpQcm9ibGVtIDEuMSAtIExvYWRpbmcgdGhlIERhdGEKUmVhZCB0aGUgZGF0YXNldCBtdnRXZWVrMS5jc3YgaW50byBSLCB1c2luZyB0aGUgcmVhZC5jc3YgZnVuY3Rpb24sIGFuZCBjYWxsIHRoZSBkYXRhIGZyYW1lICJtdnQiLiBSZW1lbWJlciB0byBuYXZpZ2F0ZSB0byB0aGUgZGlyZWN0b3J5IG9uIHlvdXIgY29tcHV0ZXIgY29udGFpbmluZyB0aGUgZmlsZSBtdnRXZWVrMS5jc3YgZmlyc3QuIEl0IG1heSB0YWtlIGEgZmV3IG1pbnV0ZXMgdG8gcmVhZCBpbiB0aGUgZGF0YSwgc2luY2UgaXQgaXMgcHJldHR5IGxhcmdlLiBUaGVuLCB1c2UgdGhlIHN0ciBhbmQgc3VtbWFyeSBmdW5jdGlvbnMgdG8gYW5zd2VyIHRoZSBmb2xsb3dpbmcgcXVlc3Rpb25zLgoKSG93IG1hbnkgcm93cyBvZiBkYXRhIChvYnNlcnZhdGlvbnMpIGFyZSBpbiB0aGlzIGRhdGFzZXQ/CmBgYHtyfQptdnQgPC0gcmVhZC5jc3YoImRhdGEvYW5hbHl0aWNhbC1kZXRlY3RpdmUvbXZ0V2VlazEuY3N2IikKc3RyKG12dCkKYGBgClRoZXJlIGFyZSAxOTE2NDEgcm93cyBvZiBkYXRhIGluIHRoZSBkYXRhc2V0CgoKUHJvYmxlbSAxLjIgLSBMb2FkaW5nIHRoZSBEYXRhCkhvdyBtYW55IHZhcmlhYmxlcyBhcmUgaW4gdGhpcyBkYXRhc2V0PwoKVGhlcmUgYXJlIDExIHZhcmlhYmxlcwoKUHJvYmxlbSAxLjMgLSBMb2FkaW5nIHRoZSBEYXRhClVzaW5nIHRoZSAibWF4IiBmdW5jdGlvbiwgd2hhdCBpcyB0aGUgbWF4aW11bSB2YWx1ZSBvZiB0aGUgdmFyaWFibGUgIklEIj8KYGBge3J9Cm1heChtdnQkSUQpCmBgYApUaGUgbWF4aW11bSB2YWx1ZSBvZiBJRCBjb2x1bW4gaXMgOTE4MTE1MQoKClByb2JsZW0gMS40IC0gTG9hZGluZyB0aGUgRGF0YQpXaGF0IGlzIHRoZSBtaW5pbXVtIHZhbHVlIG9mIHRoZSB2YXJpYWJsZSAiQmVhdCI/CmBgYHtyfQptaW4obXZ0JEJlYXQpCmBgYApUaGUgbWluaW11bSB2YWx1ZSBvZiBCZWF0IGNvbHVtbiBpcyAxMTEKCgpQcm9ibGVtIDEuNSAtIExvYWRpbmcgdGhlIERhdGEKSG93IG1hbnkgb2JzZXJ2YXRpb25zIGhhdmUgdmFsdWUgVFJVRSBpbiB0aGUgQXJyZXN0IHZhcmlhYmxlICh0aGlzIGlzIHRoZSBudW1iZXIgb2YgY3JpbWVzIGZvciB3aGljaCBhbiBhcnJlc3Qgd2FzIG1hZGUpPwpgYGB7cn0Kc3VtKG12dCRBcnJlc3QgPT0gVFJVRSkKYGBgClRoZSBudW1iZXIgb2YgY3JpbWVzIGZvciB3aGljaCBhbiBhcnJlc3Qgd2FzIG1hZGUgaXMgMTU1MzYKCgpQcm9ibGVtIDEuNiAtIExvYWRpbmcgdGhlIERhdGEKSG93IG1hbnkgb2JzZXJ2YXRpb25zIGhhdmUgYSBMb2NhdGlvbkRlc2NyaXB0aW9uIHZhbHVlIG9mIEFMTEVZPwpgYGB7cn0Kc3VtKG12dCRMb2NhdGlvbkRlc2NyaXB0aW9uID09ICJBTExFWSIpCmBgYAoKUHJvYmxlbSAyLjEgLSBVbmRlcnN0YW5kaW5nIERhdGVzIGluIFIKSW4gbWFueSBkYXRhc2V0cywgbGlrZSB0aGlzIG9uZSwgeW91IGhhdmUgYSBkYXRlIGZpZWxkLiBVbmZvcnR1bmF0ZWx5LCBSIGRvZXMgbm90IGF1dG9tYXRpY2FsbHkgcmVjb2duaXplIGVudHJpZXMgdGhhdCBsb29rIGxpa2UgZGF0ZXMuIFdlIG5lZWQgdG8gdXNlIGEgZnVuY3Rpb24gaW4gUiB0byBleHRyYWN0IHRoZSBkYXRlIGFuZCB0aW1lLiBUYWtlIGEgbG9vayBhdCB0aGUgZmlyc3QgZW50cnkgb2YgRGF0ZSAocmVtZW1iZXIgdG8gdXNlIHNxdWFyZSBicmFja2V0cyB3aGVuIGxvb2tpbmcgYXQgYSBjZXJ0YWluIGVudHJ5IG9mIGEgdmFyaWFibGUpLgoKSW4gd2hhdCBmb3JtYXQgYXJlIHRoZSBlbnRyaWVzIGluIHRoZSB2YXJpYWJsZSBEYXRlPwpgYGB7cn0KbXZ0JERhdGVbMV0KYGBgClRoZSBkYXRhIGZvcm1hdCBpcyBpbiBNb250aC9EYXkvWWVhciBIb3VyOk1pbnV0ZQoKCgpQcm9ibGVtIDIuMiAtIFVuZGVyc3RhbmRpbmcgRGF0ZXMgaW4gUgpOb3csIGxldCdzIGNvbnZlcnQgdGhlc2UgY2hhcmFjdGVycyBpbnRvIGEgRGF0ZSBvYmplY3QgaW4gUi4gSW4geW91ciBSIGNvbnNvbGUsIHR5cGUKCkRhdGVDb252ZXJ0ID0gYXMuRGF0ZShzdHJwdGltZShtdnQkRGF0ZSwgIiVtLyVkLyV5ICVIOiVNIikpCgpUaGlzIGNvbnZlcnRzIHRoZSB2YXJpYWJsZSAiRGF0ZSIgaW50byBhIERhdGUgb2JqZWN0IGluIFIuIFRha2UgYSBsb29rIGF0IHRoZSB2YXJpYWJsZSBEYXRlQ29udmVydCB1c2luZyB0aGUgc3VtbWFyeSBmdW5jdGlvbi4KCldoYXQgaXMgdGhlIG1vbnRoIGFuZCB5ZWFyIG9mIHRoZSBtZWRpYW4gZGF0ZSBpbiBvdXIgZGF0YXNldD8gRW50ZXIgeW91ciBhbnN3ZXIgYXMgIk1vbnRoIFllYXIiLCB3aXRob3V0IHRoZSBxdW90ZXMuIChFeDogaWYgdGhlIGFuc3dlciB3YXMgMjAwOC0wMy0yOCwgeW91IHdvdWxkIGdpdmUgdGhlIGFuc3dlciAiTWFyY2ggMjAwOCIsIHdpdGhvdXQgdGhlIHF1b3Rlcy4pCgpgYGB7cn0KRGF0ZUNvbnZlcnQgPSBhcy5EYXRlKHN0cnB0aW1lKG12dCREYXRlLCAiJW0vJWQvJXkgJUg6JU0iKSkKCnN1bW1hcnkoRGF0ZUNvbnZlcnQpCmBgYApUaGUgbWVkaWFuIGlzIE1heSAyMDA2CgoKUHJvYmxlbSAyLjMgLSBVbmRlcnN0YW5kaW5nIERhdGVzIGluIFIKTm93LCBsZXQncyBleHRyYWN0IHRoZSBtb250aCBhbmQgdGhlIGRheSBvZiB0aGUgd2VlaywgYW5kIGFkZCB0aGVzZSB2YXJpYWJsZXMgdG8gb3VyIGRhdGEgZnJhbWUgbXZ0LiBXZSBjYW4gZG8gdGhpcyB3aXRoIHR3byBzaW1wbGUgZnVuY3Rpb25zLiBUeXBlIHRoZSBmb2xsb3dpbmcgY29tbWFuZHMgaW4gUjoKCm12dCRNb250aCA9IG1vbnRocyhEYXRlQ29udmVydCkKCm12dCRXZWVrZGF5ID0gd2Vla2RheXMoRGF0ZUNvbnZlcnQpCgpUaGlzIGNyZWF0ZXMgdHdvIG5ldyB2YXJpYWJsZXMgaW4gb3VyIGRhdGEgZnJhbWUsIE1vbnRoIGFuZCBXZWVrZGF5LCBhbmQgc2V0cyB0aGVtIGVxdWFsIHRvIHRoZSBtb250aCBhbmQgd2Vla2RheSB2YWx1ZXMgdGhhdCB3ZSBjYW4gZXh0cmFjdCBmcm9tIHRoZSBEYXRlIG9iamVjdC4gTGFzdGx5LCByZXBsYWNlIHRoZSBvbGQgRGF0ZSB2YXJpYWJsZSB3aXRoIERhdGVDb252ZXJ0IGJ5IHR5cGluZzoKCm12dCREYXRlID0gRGF0ZUNvbnZlcnQKClVzaW5nIHRoZSB0YWJsZSBjb21tYW5kLCBhbnN3ZXIgdGhlIGZvbGxvd2luZyBxdWVzdGlvbnMuCgpJbiB3aGljaCBtb250aCBkaWQgdGhlIGZld2VzdCBtb3RvciB2ZWhpY2xlIHRoZWZ0cyBvY2N1cj8KYGBge3J9Cm12dCRNb250aCA9IG1vbnRocyhEYXRlQ29udmVydCkKbXZ0JFdlZWtkYXkgPSB3ZWVrZGF5cyhEYXRlQ29udmVydCkKbXZ0JERhdGUgPSBEYXRlQ29udmVydAoKdGFibGUobXZ0JE1vbnRoKQpgYGAKSW4gRmVicnVhcnkKCgpQcm9ibGVtIDIuNCAtIFVuZGVyc3RhbmRpbmcgRGF0ZXMgaW4gUgpPbiB3aGljaCB3ZWVrZGF5IGRpZCB0aGUgbW9zdCBtb3RvciB2ZWhpY2xlIHRoZWZ0cyBvY2N1cj8KYGBge3J9CnRhYmxlKG12dCRXZWVrZGF5KQpgYGAKSW4gRnJpZGF5CgoKUHJvYmxlbSAyLjUgLSBVbmRlcnN0YW5kaW5nIERhdGVzIGluIFIKRWFjaCBvYnNlcnZhdGlvbiBpbiB0aGUgZGF0YXNldCByZXByZXNlbnRzIGEgbW90b3IgdmVoaWNsZSB0aGVmdCwgYW5kIHRoZSBBcnJlc3QgdmFyaWFibGUgaW5kaWNhdGVzIHdoZXRoZXIgYW4gYXJyZXN0IHdhcyBsYXRlciBtYWRlIGZvciB0aGlzIHRoZWZ0LiBXaGljaCBtb250aCBoYXMgdGhlIGxhcmdlc3QgbnVtYmVyIG9mIG1vdG9yIHZlaGljbGUgdGhlZnRzIGZvciB3aGljaCBhbiBhcnJlc3Qgd2FzIG1hZGU/CmBgYHtyfQp0YWJsZShtdnQkTW9udGgsIG12dCRBcnJlc3QpCmBgYApKYW51YXJ5IGlzIHRoZSBtb250aCBoYXMgdGhlIGxhcmdlc3QgbnVtYmVyIG9mIG1vdG9yIHZlaGljbGUgdGhlZnRzIGZvciB3aGljaCBhbiBhcnJlc3Qgd2FzIG1hZGUKCgpQcm9ibGVtIDMuMSAtIFZpc3VhbGl6aW5nIENyaW1lIFRyZW5kcwpOb3csIGxldCdzIG1ha2Ugc29tZSBwbG90cyB0byBoZWxwIHVzIGJldHRlciB1bmRlcnN0YW5kIGhvdyBjcmltZSBoYXMgY2hhbmdlZCBvdmVyIHRpbWUgaW4gQ2hpY2Fnby4gVGhyb3VnaG91dCB0aGlzIHByb2JsZW0sIGFuZCBpbiBnZW5lcmFsLCB5b3UgY2FuIHNhdmUgeW91ciBwbG90IHRvIGEgZmlsZS4gRm9yIG1vcmUgaW5mb3JtYXRpb24sIHRoaXMgd2Vic2l0ZSB2ZXJ5IGNsZWFybHkgZXhwbGFpbnMgdGhlIHByb2Nlc3MuCgpGaXJzdCwgbGV0J3MgbWFrZSBhIGhpc3RvZ3JhbSBvZiB0aGUgdmFyaWFibGUgRGF0ZS4gV2UnbGwgYWRkIGFuIGV4dHJhIGFyZ3VtZW50LCB0byBzcGVjaWZ5IHRoZSBudW1iZXIgb2YgYmFycyB3ZSB3YW50IGluIG91ciBoaXN0b2dyYW0uIEluIHlvdXIgUiBjb25zb2xlLCB0eXBlCgpoaXN0KG12dCREYXRlLCBicmVha3M9MTAwKQoKTG9va2luZyBhdCB0aGUgaGlzdG9ncmFtLCBhbnN3ZXIgdGhlIGZvbGxvd2luZyBxdWVzdGlvbnMuCgpJbiBnZW5lcmFsLCBkb2VzIGl0IGxvb2sgbGlrZSBjcmltZSBpbmNyZWFzZXMgb3IgZGVjcmVhc2VzIGZyb20gMjAwMiAtIDIwMTI/CgpgYGB7cn0KaGlzdChtdnQkRGF0ZSwgYnJlYWtzPTEwMCkKYGBgCkluIGdlbmVyYWwgYXNwZWN0cywgaXQgbG9va3MgbGlrZSBpdCdzIGRlY3JlYXNpbmcKCkluIGdlbmVyYWwsIGRvZXMgaXQgbG9vayBsaWtlIGNyaW1lIGluY3JlYXNlcyBvciBkZWNyZWFzZXMgZnJvbSAyMDA1IC0gMjAwOD8KSXQgZGVjcmVhc2VzCgpJbiBnZW5lcmFsLCBkb2VzIGl0IGxvb2sgbGlrZSBjcmltZSBpbmNyZWFzZXMgb3IgZGVjcmVhc2VzIGZyb20gMjAwOSAtIDIwMTE/Ckl0IGluY3JlYXNlcwoKClByb2JsZW0gMy4yIC0gVmlzdWFsaXppbmcgQ3JpbWUgVHJlbmRzCk5vdywgbGV0J3Mgc2VlIGhvdyBhcnJlc3RzIGhhdmUgY2hhbmdlZCBvdmVyIHRpbWUuIENyZWF0ZSBhIGJveHBsb3Qgb2YgdGhlIHZhcmlhYmxlICJEYXRlIiwgc29ydGVkIGJ5IHRoZSB2YXJpYWJsZSAiQXJyZXN0IiAoaWYgeW91IGFyZSBub3QgZmFtaWxpYXIgd2l0aCBib3hwbG90cyBhbmQgd291bGQgbGlrZSB0byBsZWFybiBtb3JlLCBjaGVjayBvdXQgdGhpcyB0dXRvcmlhbCkuIEluIGEgYm94cGxvdCwgdGhlIGJvbGQgaG9yaXpvbnRhbCBsaW5lIGlzIHRoZSBtZWRpYW4gdmFsdWUgb2YgdGhlIGRhdGEsIHRoZSBib3ggc2hvd3MgdGhlIHJhbmdlIG9mIHZhbHVlcyBiZXR3ZWVuIHRoZSBmaXJzdCBxdWFydGlsZSBhbmQgdGhpcmQgcXVhcnRpbGUsIGFuZCB0aGUgd2hpc2tlcnMgKHRoZSBkb3R0ZWQgbGluZXMgZXh0ZW5kaW5nIG91dHNpZGUgdGhlIGJveCkgc2hvdyB0aGUgbWluaW11bSBhbmQgbWF4aW11bSB2YWx1ZXMsIGV4Y2x1ZGluZyBhbnkgb3V0bGllcnMgKHdoaWNoIGFyZSBwbG90dGVkIGFzIGNpcmNsZXMpLiBPdXRsaWVycyBhcmUgZGVmaW5lZCBieSBmaXJzdCBjb21wdXRpbmcgdGhlIGRpZmZlcmVuY2UgYmV0d2VlbiB0aGUgZmlyc3QgYW5kIHRoaXJkIHF1YXJ0aWxlIHZhbHVlcywgb3IgdGhlIGhlaWdodCBvZiB0aGUgYm94LiBUaGlzIG51bWJlciBpcyBjYWxsZWQgdGhlIEludGVyLVF1YXJ0aWxlIFJhbmdlIChJUVIpLiBBbnkgcG9pbnQgdGhhdCBpcyBncmVhdGVyIHRoYW4gdGhlIHRoaXJkIHF1YXJ0aWxlIHBsdXMgdGhlIElRUiBvciBsZXNzIHRoYW4gdGhlIGZpcnN0IHF1YXJ0aWxlIG1pbnVzIHRoZSBJUVIgaXMgY29uc2lkZXJlZCBhbiBvdXRsaWVyLgoKRG9lcyBpdCBsb29rIGxpa2UgdGhlcmUgd2VyZSBtb3JlIGNyaW1lcyBmb3Igd2hpY2ggYXJyZXN0cyB3ZXJlIG1hZGUgaW4gdGhlIGZpcnN0IGhhbGYgb2YgdGhlIHRpbWUgcGVyaW9kIG9yIHRoZSBzZWNvbmQgaGFsZiBvZiB0aGUgdGltZSBwZXJpb2Q/IChOb3RlIHRoYXQgdGhlIHRpbWUgcGVyaW9kIGlzIGZyb20gMjAwMSB0byAyMDEyLCBzbyB0aGUgbWlkZGxlIG9mIHRoZSB0aW1lIHBlcmlvZCBpcyB0aGUgYmVnaW5uaW5nIG9mIDIwMDcuKQoKYGBge3J9CmJveHBsb3QobXZ0JERhdGUgfiBtdnQkQXJyZXN0KQpgYGAKSW4gdGhlIGZpcnN0IGhhbGYuIFRoaXMgaXMgZHVlIHRvIHRoZSBmYWN0IHRoYXQgdGhlIFRSVUUgYm94cGxvdCwgaXMgc2tld2VkIHRvd2FyZHMgdGhlIGJvdHRvbSBvZiB0aGUgcGxvdCB0aGlzIG1lYW5zIHRoYXQgbW9yZSBjcmltZXMgZm9yIHdoaWNoIGFycmVzdCB3ZXJlIG1hZGUgaW4gdGhlIGZpcnN0IGhhbGYgb2YgdGhlIHRpbWUgcGVyaW9kLgoKClByb2JsZW0gMy4zIC0gVmlzdWFsaXppbmcgQ3JpbWUgVHJlbmRzCkxldCdzIGludmVzdGlnYXRlIHRoaXMgZnVydGhlci4gVXNlIHRoZSB0YWJsZSBmdW5jdGlvbiBmb3IgdGhlIG5leHQgZmV3IHF1ZXN0aW9ucy4KCkZvciB3aGF0IHByb3BvcnRpb24gb2YgbW90b3IgdmVoaWNsZSB0aGVmdHMgaW4gMjAwMSB3YXMgYW4gYXJyZXN0IG1hZGU/CgpOb3RlOiBpbiB0aGlzIHF1ZXN0aW9uIGFuZCBtYW55IG90aGVycyBpbiB0aGUgY291cnNlLCB3ZSBhcmUgYXNraW5nIGZvciBhbiBhbnN3ZXIgYXMgYSBwcm9wb3J0aW9uLiBUaGVyZWZvcmUsIHlvdXIgYW5zd2VyIHNob3VsZCB0YWtlIGEgdmFsdWUgYmV0d2VlbiAwIGFuZCAxLgpgYGB7cn0KdGFibGUobXZ0JEFycmVzdCwgbXZ0JFllYXIpCmBgYApgYGB7cn0KMjE1Mi8oMjE1MiArIDE4NTE3KQpgYGAKClByb2JsZW0gMy40IC0gVmlzdWFsaXppbmcgQ3JpbWUgVHJlbmRzCkZvciB3aGF0IHByb3BvcnRpb24gb2YgbW90b3IgdmVoaWNsZSB0aGVmdHMgaW4gMjAwNyB3YXMgYW4gYXJyZXN0IG1hZGU/CmBgYHtyfQoxMjEyLygxMjEyKzEzMDY4KQpgYGAKClByb2JsZW0gMy41IC0gVmlzdWFsaXppbmcgQ3JpbWUgVHJlbmRzCjEvMSBwdW50byAoY2FsaWZpY2FkbykKRm9yIHdoYXQgcHJvcG9ydGlvbiBvZiBtb3RvciB2ZWhpY2xlIHRoZWZ0cyBpbiAyMDEyIHdhcyBhbiBhcnJlc3QgbWFkZT8KYGBge3J9CjU1MC8oNTUwICsgMTM1NDIpCmBgYAoKUHJvYmxlbSA0LjEgLSBQb3B1bGFyIExvY2F0aW9ucwpBbmFseXppbmcgdGhpcyBkYXRhIGNvdWxkIGJlIHVzZWZ1bCB0byB0aGUgQ2hpY2FnbyBQb2xpY2UgRGVwYXJ0bWVudCB3aGVuIGRlY2lkaW5nIHdoZXJlIHRvIGFsbG9jYXRlIHJlc291cmNlcy4gSWYgdGhleSB3YW50IHRvIGluY3JlYXNlIHRoZSBudW1iZXIgb2YgYXJyZXN0cyB0aGF0IGFyZSBtYWRlIGZvciBtb3RvciB2ZWhpY2xlIHRoZWZ0cywgd2hlcmUgc2hvdWxkIHRoZXkgZm9jdXMgdGhlaXIgZWZmb3J0cz8KCldlIHdhbnQgdG8gZmluZCB0aGUgdG9wIGZpdmUgbG9jYXRpb25zIHdoZXJlIG1vdG9yIHZlaGljbGUgdGhlZnRzIG9jY3VyLiBJZiB5b3UgY3JlYXRlIGEgdGFibGUgb2YgdGhlIExvY2F0aW9uRGVzY3JpcHRpb24gdmFyaWFibGUsIGl0IGlzIHVuZm9ydHVuYXRlbHkgdmVyeSBoYXJkIHRvIHJlYWQgc2luY2UgdGhlcmUgYXJlIDc4IGRpZmZlcmVudCBsb2NhdGlvbnMgaW4gdGhlIGRhdGEgc2V0LiBCeSB1c2luZyB0aGUgc29ydCBmdW5jdGlvbiwgd2UgY2FuIHZpZXcgdGhpcyBzYW1lIHRhYmxlLCBidXQgc29ydGVkIGJ5IHRoZSBudW1iZXIgb2Ygb2JzZXJ2YXRpb25zIGluIGVhY2ggY2F0ZWdvcnkuIEluIHlvdXIgUiBjb25zb2xlLCB0eXBlOgoKc29ydCh0YWJsZShtdnQkTG9jYXRpb25EZXNjcmlwdGlvbikpCgpXaGljaCBsb2NhdGlvbnMgYXJlIHRoZSB0b3AgZml2ZSBsb2NhdGlvbnMgZm9yIG1vdG9yIHZlaGljbGUgdGhlZnRzLCBleGNsdWRpbmcgdGhlICJPdGhlciIgY2F0ZWdvcnk/IFlvdSBzaG91bGQgc2VsZWN0IDUgb2YgdGhlIGZvbGxvd2luZyBvcHRpb25zLgpgYGB7cn0Kc29ydCh0YWJsZShtdnQkTG9jYXRpb25EZXNjcmlwdGlvbiksIGRlY3JlYXNpbmcgPSBUUlVFKQpgYGAKVGhlIHRvcCA1IGxvY2F0aW9ucyBhcmU6ClNUUkVFVCAKUEFSS0lORyBMT1QvR0FSQUdFKE5PTi5SRVNJRC4pCkFMTEVZIApHQVMgU1RBVElPTiAKRFJJVkVXQVkgLSBSRVNJREVOVElBTCAKCgpQcm9ibGVtIDQuMiAtIFBvcHVsYXIgTG9jYXRpb25zCkNyZWF0ZSBhIHN1YnNldCBvZiB5b3VyIGRhdGEsIG9ubHkgdGFraW5nIG9ic2VydmF0aW9ucyBmb3Igd2hpY2ggdGhlIHRoZWZ0IGhhcHBlbmVkIGluIG9uZSBvZiB0aGVzZSBmaXZlIGxvY2F0aW9ucywgYW5kIGNhbGwgdGhpcyBuZXcgZGF0YSBzZXQgIlRvcDUiLiBUbyBkbyB0aGlzLCB5b3UgY2FuIHVzZSB0aGUgfCBzeW1ib2wuIEluIGxlY3R1cmUsIHdlIHVzZWQgdGhlICYgc3ltYm9sIHRvIHVzZSB0d28gY3JpdGVyaWEgdG8gbWFrZSBhIHN1YnNldCBvZiB0aGUgZGF0YS4gVG8gb25seSB0YWtlIG9ic2VydmF0aW9ucyB0aGF0IGhhdmUgYSBjZXJ0YWluIHZhbHVlIGluIG9uZSB2YXJpYWJsZSBvciB0aGUgb3RoZXIsIHRoZSB8IGNoYXJhY3RlciBjYW4gYmUgdXNlZCBpbiBwbGFjZSBvZiB0aGUgJiBzeW1ib2wuIFRoaXMgaXMgYWxzbyBjYWxsZWQgYSBsb2dpY2FsICJvciIgb3BlcmF0aW9uLgoKQWx0ZXJuYXRlbHksIHlvdSBjb3VsZCBjcmVhdGUgZml2ZSBkaWZmZXJlbnQgc3Vic2V0cywgYW5kIHRoZW4gbWVyZ2UgdGhlbSB0b2dldGhlciBpbnRvIG9uZSBkYXRhIGZyYW1lIHVzaW5nIHJiaW5kLgoKSG93IG1hbnkgb2JzZXJ2YXRpb25zIGFyZSBpbiBUb3A1PwpgYGB7cn0KVG9wNSA9IHN1YnNldChtdnQsIExvY2F0aW9uRGVzY3JpcHRpb249PSJTVFJFRVQiIHwgTG9jYXRpb25EZXNjcmlwdGlvbj09IlBBUktJTkcgTE9UL0dBUkFHRShOT04uUkVTSUQuKSIgfCBMb2NhdGlvbkRlc2NyaXB0aW9uPT0iQUxMRVkiIHwgTG9jYXRpb25EZXNjcmlwdGlvbj09IkdBUyBTVEFUSU9OIiB8IExvY2F0aW9uRGVzY3JpcHRpb249PSJEUklWRVdBWSAtIFJFU0lERU5USUFMIikKc3RyKFRvcDUpCmBgYApUaGVyZSBhcmUgMTc3NTEwIG9ic2VydmF0aW9ucyBpbiB0aGUgVG9wNSBsb2NhdGlvbnMKCgpQcm9ibGVtIDQuMyAtIFBvcHVsYXIgTG9jYXRpb25zClIgd2lsbCByZW1lbWJlciB0aGUgb3RoZXIgY2F0ZWdvcmllcyBvZiB0aGUgTG9jYXRpb25EZXNjcmlwdGlvbiB2YXJpYWJsZSBmcm9tIHRoZSBvcmlnaW5hbCBkYXRhc2V0LCBzbyBydW5uaW5nIHRhYmxlKFRvcDUkTG9jYXRpb25EZXNjcmlwdGlvbikgd2lsbCBoYXZlIGEgbG90IG9mIHVubmVjZXNzYXJ5IG91dHB1dC4gVG8gbWFrZSBvdXIgdGFibGVzIGEgYml0IG5pY2VyIHRvIHJlYWQsIHdlIGNhbiByZWZyZXNoIHRoaXMgZmFjdG9yIHZhcmlhYmxlLiBJbiB5b3VyIFIgY29uc29sZSwgdHlwZToKClRvcDUkTG9jYXRpb25EZXNjcmlwdGlvbiA9IGZhY3RvcihUb3A1JExvY2F0aW9uRGVzY3JpcHRpb24pCgpJZiB5b3UgcnVuIHRoZSBzdHIgb3IgdGFibGUgZnVuY3Rpb24gb24gVG9wNSBub3csIHlvdSBzaG91bGQgc2VlIHRoYXQgTG9jYXRpb25EZXNjcmlwdGlvbiBub3cgb25seSBoYXMgNSB2YWx1ZXMsIGFzIHdlIGV4cGVjdC4KClVzZSB0aGUgVG9wNSBkYXRhIGZyYW1lIHRvIGFuc3dlciB0aGUgcmVtYWluaW5nIHF1ZXN0aW9ucy4KCk9uZSBvZiB0aGUgbG9jYXRpb25zIGhhcyBhIG11Y2ggaGlnaGVyIGFycmVzdCByYXRlIHRoYW4gdGhlIG90aGVyIGxvY2F0aW9ucy4gV2hpY2ggaXMgaXQ/IApgYGB7cn0KVG9wNSRMb2NhdGlvbkRlc2NyaXB0aW9uID0gZmFjdG9yKFRvcDUkTG9jYXRpb25EZXNjcmlwdGlvbikKc3RyKFRvcDUpCmBgYApgYGB7cn0KdGFibGUoVG9wNSRMb2NhdGlvbkRlc2NyaXB0aW9uLCBUb3A1JEFycmVzdCkKYGBgCmBgYHtyfQojIEFsbGV5CjI0OSAvICgyNDkgKyAyMDU5KQoKIyBEcml2ZXdheQoxMzIgLyAoMTMyICsgMTU0MykKCiMgR2FzIFN0YXRpb24KNDM5IC8gKDQzOSArIDE2NzIpCgojIFBhcmtpbmcgbG90CjE2MDMgLyAoMTYwMyArIDEzMjQ5KQoKIyBTdHJlZXQKMTE1OTUgLyAoMTE1OTUgKyAxNDQ5NjkpICAKYGBgCkdhcyBTdGF0aW9uIGhhcyBtdWNoIGhpZ2hlciBhcnJlc3QgcmF0ZSB0aGFuIHRoZSBvdGhlciBsb2NhdGlvbnMuCgoKUHJvYmxlbSA0LjQgLSBQb3B1bGFyIExvY2F0aW9ucwpPbiB3aGljaCBkYXkgb2YgdGhlIHdlZWsgZG8gdGhlIG1vc3QgbW90b3IgdmVoaWNsZSB0aGVmdHMgYXQgZ2FzIHN0YXRpb25zIGhhcHBlbj8KYGBge3J9Cmdhc19zdGF0aW9uX2FycmVzdCA8LSBzdWJzZXQoVG9wNSwgTG9jYXRpb25EZXNjcmlwdGlvbj09IkdBUyBTVEFUSU9OIikKdGFibGUoZ2FzX3N0YXRpb25fYXJyZXN0JEFycmVzdCwgZ2FzX3N0YXRpb25fYXJyZXN0JFdlZWtkYXkpCmBgYAptb3N0IG1vdG9yIHZlaGljbGUgdGhlZnRzIGF0IGdhcyBzdGF0aW9ucyBoYXBwZW4gb24gU2F0dXJkYXkKCgpQcm9ibGVtIDQuNSAtIFBvcHVsYXIgTG9jYXRpb25zCk9uIHdoaWNoIGRheSBvZiB0aGUgd2VlayBkbyB0aGUgZmV3ZXN0IG1vdG9yIHZlaGljbGUgdGhlZnRzIGluIHJlc2lkZW50aWFsIGRyaXZld2F5cyBoYXBwZW4/CmBgYHtyfQpnYXNfc3RhdGlvbl9hcnJlc3QgPC0gc3Vic2V0KFRvcDUsIExvY2F0aW9uRGVzY3JpcHRpb249PSJEUklWRVdBWSAtIFJFU0lERU5USUFMIikKdGFibGUoZ2FzX3N0YXRpb25fYXJyZXN0JEFycmVzdCwgZ2FzX3N0YXRpb25fYXJyZXN0JFdlZWtkYXkpCmBgYAp0aGUgZmV3ZXN0IG1vdG9yIHZlaGljbGUgdGhlZnRzIGluIHJlc2lkZW50aWFsIGRyaXZld2F5cyBoYXBwZW4gb24gU2F0dXJkYXkKCgoKCg==</div>
 
 
 
