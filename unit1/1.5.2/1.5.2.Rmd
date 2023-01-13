@@ -1,0 +1,169 @@
+---
+title: "Analytics Edge: Unit 1 - Stocks Dynamics"
+author: "Antonella Schiavoni"
+output: html_notebook
+---
+
+# Download and read the following files into R, using the read.csv function
+```{r}
+IBM = read.csv("IBMStock.csv")
+GE = read.csv("GEStock.csv")
+ProcterGamble = read.csv("ProcterGambleStock.csv")
+CocaCola = read.csv("CocaColaStock.csv")
+Boeing = read.csv("BoeingStock.csv")
+```
+
+# Problem 1.1 - Summary Statistics
+We need to convert the dates into a format that R can understand. Right now, the date variable is stored as a factor. We can convert this to a "Date" object in R.
+```{r}
+IBM$Date = as.Date(IBM$Date, "%m/%d/%y")
+
+GE$Date = as.Date(GE$Date, "%m/%d/%y")
+
+CocaCola$Date = as.Date(CocaCola$Date, "%m/%d/%y")
+
+ProcterGamble$Date = as.Date(ProcterGamble$Date, "%m/%d/%y")
+
+Boeing$Date = as.Date(Boeing$Date, "%m/%d/%y")
+```
+
+# Problem 1.2 - Summary Statistics
+What is the earliest year in our datasets?
+```{r}
+min(IBM$Date)
+min(GE$Date)
+min(CocaCola$Date)
+min(ProcterGamble$Date)
+min(Boeing$Date)
+```
+# Problem 1.3 - Summary Statistics
+What is the latests year in our datasets?
+```{r}
+max(IBM$Date)
+max(GE$Date)
+max(CocaCola$Date)
+max(ProcterGamble$Date)
+max(Boeing$Date)
+```
+
+# Problem 1.4 - Summary Statistics
+What is the mean stock price of IBM over this time period?
+
+```{r}
+mean(IBM$StockPrice)
+```
+
+# Problem 1.5 - Summary Statistics
+What is the minimum stock price of General Electric (GE) over this time period?
+```{r}
+min(GE$StockPrice)
+```
+
+# Problem 1.6 - Summary Statistics
+What is the maximum stock price of Coca-Cola over this time period?
+```{r}
+max(CocaCola$StockPrice)
+```
+
+# Problem 1.7 - Summary Statistics
+What is the median stock price of Boeing over this time period?
+```{r}
+median(Boeing$StockPrice)
+```
+
+# Problem 1.8 - Summary Statistics
+What is the standard deviation of the stock price of Procter & Gamble over this time period?
+```{r}
+sd(ProcterGamble$StockPrice)
+```
+
+# Problem 2.1 - Visualizing Stock Dynamics
+Let's plot the stock prices to see if we can visualize trends in stock prices during this time period. Using the plot function, plot the Date on the x-axis and the StockPrice on the y-axis, for Coca-Cola.
+
+Around what year did Coca-Cola has its highest stock price in this time period?
+```{r}
+plot(CocaCola$Date, CocaCola$StockPrice, type='l')
+```
+Around 1973 CocaCola shows the highest stock price.
+Around 1980 CocaCola shows the lowest stock price
+
+# Problem 2.2 - Visualizing Stock Dynamics
+Now, let's add the line for Procter & Gamble too. You can add a line to a plot in R by using the lines function instead of the plot function.
+
+In March of 2000, the technology bubble burst, and a stock market crash occurred. According to this plot, which company's stock dropped more?
+```{r}
+plot(CocaCola$Date, CocaCola$StockPrice, type='l', col='red')
+lines(ProcterGamble$Date, ProcterGamble$StockPrice, col='blue')
+abline(v=as.Date(c("2000-03-01")), lwd=2)
+```
+Both lines drop, but Procter and Gamble drops more.
+
+# Problem 2.3 - Visualizing Stock Dynamics
+
+Around 1983, the stock for one of these companies (Coca-Cola or Procter and Gamble) was going up, while the other was going down. Which one was going up? CocaCola
+
+In the time period shown in the plot, which stock generally has lower values? CocaCola
+
+# Problem 3.1 - Visualizing Stock Dynamics 1995-2005
+Which stock fell the most right after the technology bubble burst in March 2000?
+```{r}
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210), xlab = "Date", ylab = "Stock Price")
+lines(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432], col="blue")
+lines(IBM$Date[301:432], IBM$StockPrice[301:432], col="green")
+lines(GE$Date[301:432], GE$StockPrice[301:432], col="purple")
+lines(Boeing$Date[301:432], Boeing$StockPrice[301:432], col="orange")
+```
+General Electric
+
+# Problem 3.2 - Visualizing Stock Dynamics 1995-2005
+Which stock reaches the highest value in the time period 1995-2005? 
+IBM
+
+# Problem 3.3 - Visualizing Stock Dynamics 1995-2005
+In October of 1997, there was a global stock market crash that was caused by an economic crisis in Asia. Comparing September 1997 to November 1997, which companies saw a decreasing trend in their stock price? (Select all that apply.)
+
+```{r}
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210), xlab = "Date", ylab = "Stock Price")
+lines(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432], col="blue")
+lines(IBM$Date[301:432], IBM$StockPrice[301:432], col="green")
+lines(GE$Date[301:432], GE$StockPrice[301:432], col="purple")
+lines(Boeing$Date[301:432], Boeing$StockPrice[301:432], col="orange")
+abline(v=as.Date(c("1997-09-01")), lwd=2)
+abline(v=as.Date(c("1997-11-01")), lwd=2)
+```
+
+# Problem 3.4 - Visualizing Stock Dynamics 1995-2005
+In the last two years of this time period (2004 and 2005) which stock seems to be performing the best, in terms of increasing stock price?
+```{r}
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210), xlab = "Date", ylab = "Stock Price")
+lines(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432], col="blue")
+lines(IBM$Date[301:432], IBM$StockPrice[301:432], col="green")
+lines(GE$Date[301:432], GE$StockPrice[301:432], col="purple")
+lines(Boeing$Date[301:432], Boeing$StockPrice[301:432], col="orange")
+abline(v=as.Date(c("2004-01-01")), lwd=2)
+abline(v=as.Date(c("2005-01-01")), lwd=2)
+```
+Boeing
+
+# Problem 4.1 - Monthly Trends
+For IBM, compare the monthly averages to the overall average stock price. In which months has IBM historically had a higher stock price (on average)? Select all that apply.
+```{r}
+mean(IBM$StockPrice)
+tapply(IBM$StockPrice, months(IBM$Date), mean)
+```
+
+# Problem 4.2 - Monthly Trends
+```{r}
+mean(CocaCola$StockPrice)
+tapply(CocaCola$StockPrice, months(CocaCola$Date), mean)
+```
+
+# Problem 4.3 - Monthly Trends
+For the months of December and January, every company's average stock is higher in one month and lower in the other. In which month are the stock prices lower?
+```{r}
+tapply(GE$StockPrice, months(GE$Date), mean)
+tapply(CocaCola$StockPrice, months(CocaCola$Date), mean)
+tapply(IBM$StockPrice, months(IBM$Date), mean)
+tapply(ProcterGamble$StockPrice, months(ProcterGamble$Date), mean)
+tapply(Boeing$StockPrice, months(Boeing$Date), mean)
+```
