@@ -1,0 +1,72 @@
+---
+title: "Analytics Edge: Unit 1 - Demographics and Employment"
+author: "Antonella Schiavoni"
+output: html_notebook
+---
+# Problem 1.1 - Loading and Summarizing the Dataset
+How many interviewees are in the dataset?
+```{r}
+CPS = read.csv("CPSData.csv")
+```
+There are 131302 Interviewees.
+
+# Problem 1.2 - Loading and Summarizing the Dataset
+Among the interviewees with a value reported for the Industry variable, what is the most common industry of employment?
+```{r}
+table(CPS$Industry)
+```
+# Problem 1.3 - Loading and Summarizing the Dataset
+Which state has the fewest interviewees?
+
+Which state has the largest number of interviewees?
+```{r}
+sort(table(CPS$State))
+```
+# Problem 1.4 - Loading and Summarizing the Dataset
+What proportion of interviewees are citizens of the United States?
+```{r}
+table(CPS$Citizenship)
+```
+
+```{r}
+(116639 + 7073) / (116639 + 7073 + 7590)
+```
+# Problem 1.5 - Loading and Summarizing the Dataset
+The CPS differentiates between race (with possible values American Indian, Asian, Black, Pacific Islander, White, or Multiracial) and ethnicity. A number of interviewees are of Hispanic ethnicity, as captured by the Hispanic variable. For which races are there at least 250 interviewees in the CPS dataset of Hispanic ethnicity? (Select all that apply.)
+
+```{r}
+table(CPS$Race, CPS$Hispanic)
+```
+# Problem 2.1 - Evaluating Missing Values
+Which variables have at least one interviewee with a missing (NA) value? (Select all that apply.)
+```{r}
+summary(CPS)
+```
+```{r}
+summary(is.na(CPS))
+```
+# Problem 2.2 - Evaluating Missing Values
+Often when evaluating a new dataset, we try to identify if there is a pattern in the missing values in the dataset. We will try to determine if there is a pattern in the missing values of the Married variable.
+```{r}
+table(CPS$Region, is.na(CPS$Married))
+table(CPS$Sex, is.na(CPS$Married))
+table(CPS$Age, is.na(CPS$Married))
+table(CPS$Citizenship, is.na(CPS$Married))
+```
+# Problem 2.3 - Evaluating Missing Values
+How many states had all interviewees living in a non-metropolitan area (aka they have a missing MetroAreaCode value)? For this question, treat the District of Columbia as a state (even though it is not technically a state).
+```{r}
+table(CPS$State, is.na(CPS$MetroAreaCode))
+```
+# Problem 2.4 - Evaluating Missing Values
+Which region of the United States has the largest proportion of interviewees living in a non-metropolitan area?
+```{r}
+table(CPS$Region, is.na(CPS$MetroAreaCode))
+```
+# Problem 2.5 - Evaluating Missing Values
+Which state has a proportion of interviewees living in a non-metropolitan area closest to 30%?
+```{r}
+sort(tapply(is.na(CPS$MetroAreaCode), CPS$State, mean))
+```
+
+
